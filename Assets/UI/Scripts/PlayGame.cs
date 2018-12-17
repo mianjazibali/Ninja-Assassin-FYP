@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
 {
+    public LevelChanger levelChanger;
+
+    private void Start()
+    {
+              
+    }
+
     public void Play()
     {
-        SceneManager.LoadScene("SceneSelection", LoadSceneMode.Single);
+        levelChanger.FadeToLevel(1);
     }
 }

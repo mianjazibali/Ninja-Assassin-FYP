@@ -16,4 +16,19 @@ public class PlayGame : MonoBehaviour
     {
         levelChanger.FadeToLevel(1);
     }
+
+    public void Scene_01()
+    {
+        levelChanger.FadeToLevel(2);
+    }
+
+    public void Scene_02()
+    {
+        levelChanger.FadeToLevel(3);
+    }
+
+    public void Scene_03()
+    {
+        levelChanger.FadeToLevel(4);
+    }
 }

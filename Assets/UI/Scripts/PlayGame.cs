@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayGame : MonoBehaviour
 {
     public LevelChanger levelChanger;
+    public Back back;
 
     private void Start()
     {
-              
+        back = GameObject.FindGameObjectWithTag("Back").GetComponent<Back>();
     }
 
     public void Play()
@@ -35,5 +36,11 @@ public class PlayGame : MonoBehaviour
     public void Setting()
     {
         levelChanger.FadeToLevel(5);
+    }
+
+    public void Previous()
+    {
+        Debug.Log(back.getPreviousSceneIndex());
+        levelChanger.FadeToLevel(back.getPreviousSceneIndex());
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Music
   - Back
+  - MusicToggle
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public class Back : MonoBehaviour
         array[currentArrayIndex] = currentSceneIndex;
     }
 
+    /*
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Back");
@@ -29,6 +30,7 @@ public class Back : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
+    */
 
     void Update()
     {
@@ -44,7 +46,6 @@ public class Back : MonoBehaviour
                     return;
                 }
             }
-            Debug.Log(currentSceneIndex);
             array[++currentArrayIndex] = currentSceneIndex;
         }
     }

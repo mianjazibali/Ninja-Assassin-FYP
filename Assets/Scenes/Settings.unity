@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -332,7 +332,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1004,5 +1004,53 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2323792363537264618}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggleMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323792364683590325, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fdfc7b27c9dde64d9ae4863345fa347, type: 3}
+--- !u!1 &2323792363537264617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2323792364683590323, guid: 9fdfc7b27c9dde64d9ae4863345fa347,
+    type: 3}
+  m_PrefabInstance: {fileID: 2323792363537264616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2323792363537264618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323792363537264617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0626ba2c42186af48a8ff90f63e047de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

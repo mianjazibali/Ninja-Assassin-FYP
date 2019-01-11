@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 public class Music : MonoBehaviour
 {
     private AudioSource _audioSource;
+    public static int isMusicOn = 0; //0 for On because 0 is default value
 
     private void Start()
     {
+        isMusicOn = PlayerPrefs.GetInt("MusicTriggerValue");
         _audioSource = GetComponent<AudioSource>();
     }
 
+    /*
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
@@ -21,6 +24,7 @@ public class Music : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
     }
+    */
 
     void Update()
     {
@@ -31,11 +35,24 @@ public class Music : MonoBehaviour
         }
         else
         {
-            if (_audioSource.isPlaying)
+            if (!_audioSource.isPlaying && isMusicOn == 0)
+            {
+                _audioSource.UnPause();
+                PlayerPrefs.SetInt("MusicTriggerValue", 0);
+                PlayerPrefs.Save();
+            }
+            else
+            if ( (!_audioSource.isPlaying && isMusicOn == 1) || (_audioSource.isPlaying && isMusicOn == 0) )
             {
                 return;
             }
-            _audioSource.UnPause();
+            else
+            if (_audioSource.isPlaying && isMusicOn == 1)
+            {
+                _audioSource.Pause();
+                PlayerPrefs.SetInt("MusicTriggerValue", 1);
+                PlayerPrefs.Save();
+            }
         }
     }
 }

@@ -40,7 +40,6 @@ public class PlayGame : MonoBehaviour
 
     public void Previous()
     {
-        Debug.Log(back.getPreviousSceneIndex());
         levelChanger.FadeToLevel(back.getPreviousSceneIndex());
     }
 }

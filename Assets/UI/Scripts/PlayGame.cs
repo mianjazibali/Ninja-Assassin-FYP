@@ -42,4 +42,14 @@ public class PlayGame : MonoBehaviour
     {
         levelChanger.FadeToLevel(back.getPreviousSceneIndex());
     }
+
+    public void Current()
+    {
+        levelChanger.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PlayLevel(int level)
+    {
+        levelChanger.FadeToLevel(level + 6);
+    }
 }

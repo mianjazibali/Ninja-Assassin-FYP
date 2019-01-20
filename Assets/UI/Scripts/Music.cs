@@ -28,7 +28,7 @@ public class Music : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Scene")
+        if (SceneManager.GetActiveScene().buildIndex > 100)
         {
             _audioSource.Pause();
             //Destroy(this.gameObject);

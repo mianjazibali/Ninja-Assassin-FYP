@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -137,6 +137,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUIMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a3b01a95b5fe25644bb1b6c3fdf85656, type: 3}
     - target: {fileID: 2933368020078072219, guid: c4cc0fb52dc72e140bdc662663ca0069,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,21 +207,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933368020078072218, guid: c4cc0fb52dc72e140bdc662663ca0069,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a3b01a95b5fe25644bb1b6c3fdf85656, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cc0fb52dc72e140bdc662663ca0069, type: 3}
 --- !u!1 &678036550

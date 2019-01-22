@@ -52,4 +52,9 @@ public class PlayGame : MonoBehaviour
     {
         levelChanger.FadeToLevel(level + 6);
     }
+
+    public void ResetGame()
+    {
+        LevelSelector01.ResetProgress();
+    }
 }

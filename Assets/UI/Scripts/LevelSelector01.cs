@@ -5,11 +5,11 @@ public class LevelSelector01 : MonoBehaviour
 {
     public LevelChanger levelChanger;
     public Button[] levelButtons;
-    int levelReached = 1;
+    static int levelReached = 25;
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("levelReached") == 0)
+        if (PlayerPrefs.GetInt("levelReached") != 0)
         {
             PlayerPrefs.SetInt("levelReached", levelReached);
             PlayerPrefs.Save();
@@ -24,7 +24,10 @@ public class LevelSelector01 : MonoBehaviour
             if (i + 1 > levelReached)
             {
                 levelButtons[i].interactable = false;
-                
+            }
+            else
+            {
+                levelButtons[i].transform.GetChild(1).gameObject.SetActive(false);
             }
         }
     }
@@ -32,5 +35,12 @@ public class LevelSelector01 : MonoBehaviour
     public void Select(int levelIndex)
     {
         levelChanger.FadeToLevel(levelIndex);
+    }
+
+    public static void ResetProgress()
+    {
+        levelReached = 1;
+        PlayerPrefs.SetInt("levelReached", levelReached);
+        PlayerPrefs.Save();
     }
 }

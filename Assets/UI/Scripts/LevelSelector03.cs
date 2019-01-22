@@ -16,6 +16,10 @@ public class LevelSelector03 : MonoBehaviour
             {
                 levelButtons[i].interactable = false;
             }
+            else
+            {
+                levelButtons[i].transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
     }
 

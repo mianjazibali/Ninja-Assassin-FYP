@@ -5,11 +5,11 @@ public class LevelSelector01 : MonoBehaviour
 {
     public LevelChanger levelChanger;
     public Button[] levelButtons;
-    static int levelReached = 25;
+    static int levelReached = 1;
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("levelReached") != 0)
+        if (PlayerPrefs.GetInt("levelReached") == 0)
         {
             PlayerPrefs.SetInt("levelReached", levelReached);
             PlayerPrefs.Save();

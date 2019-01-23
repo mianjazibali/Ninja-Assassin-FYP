@@ -9,7 +9,7 @@ public class AutoScroll : MonoBehaviour
     void Awake()
     {
         levelReached = PlayerPrefs.GetInt("levelReached");
-        Debug.Log(levelReached);
+
         if (levelReached >= 19)
         {
             GetComponent<RectTransform>().localPosition = new Vector3(-1100, 0, 0);

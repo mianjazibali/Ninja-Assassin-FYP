@@ -141,14 +141,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1fc796919c72a634ba637aa22db9df8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68bd8086b9472c84c8dcaec9fffe0092, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119, y: 83}
+  m_AnchoredPosition: {x: -119, y: 77}
   m_SizeDelta: {x: 309.5, y: 90.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2323792362855396512
@@ -378,8 +378,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Music
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 852b64beff89d0e4d89a29603f7a15f1, type: 2}
-  m_sharedMaterial: {fileID: 21308903693632014, guid: 852b64beff89d0e4d89a29603f7a15f1,
+  m_fontAsset: {fileID: 11400000, guid: 28bb106d4cee90e468fc8170084436d6, type: 2}
+  m_sharedMaterial: {fileID: 21948680553733078, guid: 28bb106d4cee90e468fc8170084436d6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -539,8 +539,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 852b64beff89d0e4d89a29603f7a15f1, type: 2}
-  m_sharedMaterial: {fileID: 21308903693632014, guid: 852b64beff89d0e4d89a29603f7a15f1,
+  m_fontAsset: {fileID: 11400000, guid: 9f043f1a119d13148a141708a9b43e3d, type: 2}
+  m_sharedMaterial: {fileID: 21243964437999898, guid: 9f043f1a119d13148a141708a9b43e3d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 514
+  m_textAlignment: 1026
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119, y: -19}
+  m_AnchoredPosition: {x: -119, y: -8.000021}
   m_SizeDelta: {x: 309.5, y: 90.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2323792364183470165
@@ -701,8 +701,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Sound
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 852b64beff89d0e4d89a29603f7a15f1, type: 2}
-  m_sharedMaterial: {fileID: 21308903693632014, guid: 852b64beff89d0e4d89a29603f7a15f1,
+  m_fontAsset: {fileID: 11400000, guid: 28bb106d4cee90e468fc8170084436d6, type: 2}
+  m_sharedMaterial: {fileID: 21948680553733078, guid: 28bb106d4cee90e468fc8170084436d6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -853,14 +853,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1fc796919c72a634ba637aa22db9df8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68bd8086b9472c84c8dcaec9fffe0092, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1178,17 +1178,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2323792362591447318}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6791572688516742635
@@ -1225,8 +1214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5673464371886504528
 CanvasRenderer:
@@ -1258,8 +1247,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Reset Progress
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a666a93f6562a194789f06c6c9747339, type: 2}
-  m_sharedMaterial: {fileID: 21118102296871378, guid: a666a93f6562a194789f06c6c9747339,
+  m_fontAsset: {fileID: 11400000, guid: 9f043f1a119d13148a141708a9b43e3d, type: 2}
+  m_sharedMaterial: {fileID: 21243964437999898, guid: 9f043f1a119d13148a141708a9b43e3d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1285,8 +1274,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

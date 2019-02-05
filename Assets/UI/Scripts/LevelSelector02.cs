@@ -18,7 +18,8 @@ public class LevelSelector02 : MonoBehaviour
             }
             else
             {
-                levelButtons[i].transform.GetChild(1).gameObject.SetActive(false);
+                levelButtons[i].transform.GetChild(1).gameObject.SetActive(true);
+                levelButtons[i].transform.GetChild(2).gameObject.SetActive(false);
             }
         }
     }

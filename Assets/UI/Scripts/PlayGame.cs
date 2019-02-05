@@ -38,6 +38,11 @@ public class PlayGame : MonoBehaviour
         levelChanger.FadeToLevel(5);
     }
 
+    public void Shop()
+    {
+        levelChanger.FadeToLevel(6);
+    }
+
     public void Previous()
     {
         levelChanger.FadeToLevel(back.getPreviousSceneIndex());
@@ -56,5 +61,10 @@ public class PlayGame : MonoBehaviour
     public void ResetGame()
     {
         LevelSelector01.ResetProgress();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

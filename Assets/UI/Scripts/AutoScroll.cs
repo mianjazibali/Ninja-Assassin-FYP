@@ -12,16 +12,16 @@ public class AutoScroll : MonoBehaviour
 
         if (levelReached >= 19)
         {
-            GetComponent<RectTransform>().localPosition = new Vector3(-1100, 0, 0);
+            GetComponent<RectTransform>().localPosition = new Vector3(-1 * gameObject.transform.GetChild(2).gameObject.transform.position.x - 100, 0, 0);
         }
         else
         if (levelReached >= 10)
         {
-            GetComponent<RectTransform>().localPosition = new Vector3(-550, 0, 0);
+            GetComponent<RectTransform>().localPosition = new Vector3(-1 * gameObject.transform.GetChild(1).gameObject.transform.position.x - 100, 0, 0);
         }
         else
         {
-            GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+            GetComponent<RectTransform>().localPosition = new Vector3(gameObject.transform.GetChild(0).gameObject.transform.position.x - 100, 0, 0);
         }
         
     }

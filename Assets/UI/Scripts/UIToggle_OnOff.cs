@@ -13,9 +13,9 @@ namespace DuloGames.UI
             Reposition
         }
 
-		[SerializeField] private Image m_Target;
+		[SerializeField] public Image m_Target;
         [SerializeField] private Transition m_Transition = Transition.SpriteSwap;
-        [SerializeField] private Sprite m_ActiveSprite;
+        [SerializeField] public Sprite m_ActiveSprite;
         [SerializeField] private Vector2 m_InactivePosition = Vector2.zero;
         [SerializeField] private Vector2 m_ActivePosition = Vector2.zero;
 		

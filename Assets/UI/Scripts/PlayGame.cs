@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
 {
-    public LevelChanger levelChanger;
     public Back back;
 
     private void Start()
@@ -15,47 +14,47 @@ public class PlayGame : MonoBehaviour
 
     public void Play()
     {
-        levelChanger.FadeToLevel(1);
+        Fader.Instance.FadeIn().LoadLevel(1).FadeOut();
     }
 
     public void Scene_01()
     {
-        levelChanger.FadeToLevel(2);
+        Fader.Instance.FadeIn().LoadLevel(2).FadeOut();
     }
 
     public void Scene_02()
     {
-        levelChanger.FadeToLevel(3);
+        Fader.Instance.FadeIn().LoadLevel(3).FadeOut();
     }
 
     public void Scene_03()
     {
-        levelChanger.FadeToLevel(4);
+        Fader.Instance.FadeIn().LoadLevel(4).FadeOut();
     }
 
     public void Setting()
     {
-        levelChanger.FadeToLevel(5);
+        Fader.Instance.FadeIn().LoadLevel(5).FadeOut();
     }
 
     public void Shop()
     {
-        levelChanger.FadeToLevel(6);
+        Fader.Instance.FadeIn().LoadLevel(6).FadeOut();
     }
 
     public void Previous()
     {
-        levelChanger.FadeToLevel(back.getPreviousSceneIndex());
+        Fader.Instance.FadeIn().LoadLevel(back.getPreviousSceneIndex()).FadeOut();
     }
 
     public void Current()
     {
-        levelChanger.FadeToLevel(SceneManager.GetActiveScene().buildIndex);
+        Fader.Instance.FadeIn().LoadLevel(SceneManager.GetActiveScene().buildIndex).FadeOut();
     }
 
     public void PlayLevel(int level)
     {
-        levelChanger.FadeToLevel(level + 6);
+        Fader.Instance.FadeIn().LoadLevel(level + 6).FadeOut();
     }
 
     public void ResetGame()

@@ -6,13 +6,13 @@ public class Music : MonoBehaviour
 {
     private AudioSource _audioSource;
     public static int isMusicOn = 0; //0 for On because 0 is default value
-    public float volume;
+    public float volume = 0.66f;
 
     private void Start()
     {
         isMusicOn = PlayerPrefs.GetInt("MusicTriggerValue");
         _audioSource = GetComponent<AudioSource>();
-        volume = _audioSource.volume;
+        _audioSource.volume = volume;
     }
 
     /*
@@ -30,19 +30,9 @@ public class Music : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.isGamePaused)
-        {
-            _audioSource.volume = volume/1.5f;
-        }
-        else
-        {
-            _audioSource.volume = volume;
-        }
-
         if (SceneManager.GetActiveScene().buildIndex > 100)
         {
             _audioSource.Pause();
-            //Destroy(this.gameObject);
         }
         else
         {

@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class LevelSelector01 : MonoBehaviour
 {
-    public LevelChanger levelChanger;
     public Button[] levelButtons;
     static int levelReached = 1;
 
@@ -35,7 +34,7 @@ public class LevelSelector01 : MonoBehaviour
 
     public void Select(int levelIndex)
     {
-        levelChanger.FadeToLevel(levelIndex);
+        Fader.Instance.FadeIn().LoadLevel(levelIndex).FadeOut();
     }
 
     public static void ResetProgress()

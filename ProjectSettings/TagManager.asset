@@ -8,6 +8,7 @@ TagManager:
   - Back
   - MusicToggle
   - GameManager
+  - Fader
   layers:
   - Default
   - TransparentFX

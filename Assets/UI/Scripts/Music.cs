@@ -6,7 +6,7 @@ public class Music : MonoBehaviour
 {
     private AudioSource _audioSource;
     public static int isMusicOn = 0; //0 for On because 0 is default value
-    public float volume = 0.66f;
+    public float volume = 0.2f;
 
     private void Start()
     {

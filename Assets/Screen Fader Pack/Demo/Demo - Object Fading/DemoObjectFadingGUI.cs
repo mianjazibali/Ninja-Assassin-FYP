@@ -196,6 +196,7 @@ public class DemoObjectFadingGUI : MonoBehaviour
     }
     private int GetLevelIndex()
     {
+         
         return SceneManager.GetActiveScene().buildIndex == 0 ? 1 : 0;
     }
     private void ShowCode()

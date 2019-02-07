@@ -7,12 +7,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using ScreenFaderComponents;
 using ScreenFaderComponents.Actions;
 using ScreenFaderComponents.Enumerators;
 using ScreenFaderComponents.Events;
-
+using UnityEngine.SceneManagement;
 
 public class Fader : MonoBehaviour, IFader
 {
@@ -1095,10 +1094,8 @@ namespace ScreenFaderComponents
 
                 if (Int32.TryParse(value, out index))
                     SceneManager.LoadScene(index);
-                //Application.LoadLevel(index);
                 else
                     SceneManager.LoadScene(value);
-                //Application.LoadLevel(value);
 
                 Completed = true;
             }

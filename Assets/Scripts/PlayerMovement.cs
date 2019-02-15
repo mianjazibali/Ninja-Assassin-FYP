@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
-            //myAnimator.SetFloat("moveSpeed", Mathf.Abs(moveInput));
+            myAnimator.SetFloat("moveSpeed", Mathf.Abs(moveInput));
         }
         else
         {

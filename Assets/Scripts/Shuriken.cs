@@ -44,4 +44,13 @@ public class Shuriken : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Destructible")
+        {
+            other.GetComponent<Destructible>().AddDamage(damagePower);
+            Destroy(gameObject);
+        }
+    }
 }

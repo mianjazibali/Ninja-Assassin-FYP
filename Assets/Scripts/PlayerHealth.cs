@@ -10,12 +10,18 @@ public class PlayerHealth : MonoBehaviour
     public float totalHealth;
     public float currentHealth;
 
+    //Respawn Variables
+    public float respawnDelayTime;
+
     //Reference Variables
     private LevelManager levelManager;
 
     //Shield Variables
     [SerializeField]
     private bool isShieldActive;
+
+    //FX Variables
+    public GameObject bloodSplashFX;
 
     private void Start()
     {
@@ -32,6 +38,31 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void AddDamage(float damage)
+    {
+        currentHealth = currentHealth - damage;
+        if (currentHealth <= 0)
+        {
+            MakeDead();
+        }
+    }
+
+    public void MakeDead()
+    {
+        /*
+        if (playerControllerTouch.isGrounded)
+        {
+            myAnimator.SetTrigger("dead");
+        }
+        else
+        {
+        */
+            gameObject.SetActive(false);
+            Instantiate(bloodSplashFX, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+            Invoke("Respawn", respawnDelayTime);
+        //}
+    }
+
     public void Respawn()
     {
         /*
@@ -42,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
         }
         */
         transform.position = levelManager.lastCheckpointPosition;
+        gameObject.SetActive(true);
     }
 
     public void IncrementCurrentLives()

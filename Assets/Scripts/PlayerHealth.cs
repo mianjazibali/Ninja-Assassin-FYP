@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     //Reference Variables
     private LevelManager levelManager;
 
+    //Shield Variables
+    [SerializeField]
+    private bool isShieldActive;
+
     private void Start()
     {
         currentLives = totalLives;
@@ -40,4 +44,13 @@ public class PlayerHealth : MonoBehaviour
         transform.position = levelManager.lastCheckpointPosition;
     }
 
+    public void IncrementCurrentLives()
+    {
+        currentLives++;
+    }
+
+    public void SetShield(bool status)
+    {
+        isShieldActive = status; 
+    }
 }

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     //Jump Variables
     public float jumpForce = 7f;
     public float extraGravity = 10f;
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         extraJumps = extraJumpsValue;
         facingRight = true;
-        //gameObject.transform.position = GameObject.FindGameObjectWithTag("LevelManager").transform.position;
+        gameObject.transform.position = GameObject.FindGameObjectWithTag("LevelManager").transform.position;
     }
 
     // Update is called once per frame

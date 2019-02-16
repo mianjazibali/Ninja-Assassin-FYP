@@ -9,6 +9,7 @@ TagManager:
   - MusicToggle
   - GameManager
   - Fader
+  - LevelManager
   layers:
   - Default
   - TransparentFX

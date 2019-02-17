@@ -20,9 +20,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private bool isShieldActive;
 
-    //FX Variables
-    public GameObject bloodSplashFX;
-
     private void Start()
     {
         currentLives = totalLives;
@@ -43,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = currentHealth - damage;
         if (currentHealth <= 0)
         {
-            MakeDead();
+            //MakeDead();
         }
     }
 
@@ -54,26 +51,17 @@ public class PlayerHealth : MonoBehaviour
         {
             myAnimator.SetTrigger("dead");
         }
-        else
-        {
         */
-            gameObject.SetActive(false);
-            Instantiate(bloodSplashFX, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
-            Invoke("Respawn", respawnDelayTime);
-        //}
     }
 
     public void Respawn()
     {
-        /*
         if(currentLives > 0)
         {
             currentLives--;
             currentHealth = totalHealth;
         }
-        */
         transform.position = levelManager.lastCheckpointPosition;
-        gameObject.SetActive(true);
     }
 
     public void IncrementCurrentLives()

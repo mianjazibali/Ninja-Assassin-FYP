@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     //Shuriken variables 
     public GameObject shurikenPrefab;
     public Transform shurikenPosition;
+    public float throwSpeed;
 
 
     // Start is called before the first frame update
@@ -122,42 +123,30 @@ public class PlayerMovement : MonoBehaviour
 
     void Shuriken()
     {
-        //myAnimator.SetTrigger("shuriken");
+        myAnimator.SetTrigger("Shuriken");
     }
 
     public void ThrowShuriken()
     {
+        float multiplier = 1;
+        if(Mathf.Abs(myRigidbody.velocity.x) > 0)
+        {
+            multiplier = 1.33f;
+        }
+        GameObject clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
         if (facingRight)
         {
-            GameObject temp = Instantiate(shurikenPrefab, shurikenPosition.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            if (Mathf.Abs(myRigidbody.velocity.x) > 0)
-            {
-                temp.GetComponent<Shuriken>().setMoveSpeed(15f);
-            }
-            else
-            {
-                temp.GetComponent<Shuriken>().setMoveSpeed(10f);
-            }
-            temp.GetComponent<Shuriken>().Initialize(Vector3.right);
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed * multiplier);
         }
         else
         {
-            GameObject temp = Instantiate(shurikenPrefab, shurikenPosition.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            if (Mathf.Abs(myRigidbody.velocity.x) > 0)
-            {
-                temp.GetComponent<Shuriken>().setMoveSpeed(15f);
-            }
-            else
-            {
-                temp.GetComponent<Shuriken>().setMoveSpeed(10f);
-            }
-            temp.GetComponent<Shuriken>().Initialize(Vector3.left);
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
         }
     }
 
     void FlySword()
     {
-
+        myAnimator.SetTrigger("Sword");
     }
 
     

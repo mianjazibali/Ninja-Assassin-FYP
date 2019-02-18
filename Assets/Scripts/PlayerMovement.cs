@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator myAnimator;
 
     //Movement Variables
+    public bool movementAllowed = true;
     public float moveSpeed = 7f;
 
     //Player Facing Variables
@@ -64,15 +65,19 @@ public class PlayerMovement : MonoBehaviour
 
         float moveInput = 0f;
         moveInput = CrossPlatformInputManager.GetAxis("Horizontal");
-        if (moveInput < 0 && facingRight)
+        if (moveInput < 0 && facingRight && movementAllowed)
         {
             FlipPlayer();
         }
-        else if (moveInput > 0 && !facingRight)
+        else if (moveInput > 0 && !facingRight && movementAllowed)
         {
             FlipPlayer();
         }
-        myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0f);
+
+        if (movementAllowed)
+        {
+            myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0f);
+        }
 
         if (isGrounded)
         {

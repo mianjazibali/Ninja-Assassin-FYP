@@ -8045,7 +8045,7 @@ MonoBehaviour:
   extraJumpsValue: 1
   shurikenPrefab: {fileID: 823818242, guid: cb126861a4383f7479d1a3d269531aee, type: 3}
   shurikenPosition: {fileID: 5409030422562661536}
-  throwSpeed: 1500
+  throwSpeed: 1000
 --- !u!95 &827377453382978069
 Animator:
   serializedVersion: 3

@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 7e63085a0a2b38846a38d8f708f3a78b
+guid: 4f720fe082132114da587afda8697da9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: shuriken_001_free
     400000: //RootNode
-    400002: shuriken_001_free
-    2100000: shuriken_001_freeMat
-    2300000: shuriken_001_free
-    3300000: shuriken_001_free
-    4300000: shuriken_001_free
+    2100000: Material.001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: shuriken1_low
   externalObjects: {}
   materials:
     importMaterials: 1

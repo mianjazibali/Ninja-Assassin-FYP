@@ -16,10 +16,11 @@ public class Movement : MonoBehaviour
     private readonly float jumpVelocity = 15f;
     private readonly float fallMultiplier = 3f;
     private readonly float lowJumpMultiplier = 1.5f;
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform rayCastSource;
     private readonly float rayCastLength = 3f;
     public LayerMask groundLayer;
+    private float colliderHeight;
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
         movementAllowed = true;
         facingRight = true;
         isGrounded = true;
+        colliderHeight = GetComponent<CapsuleCollider>().height;
     }
 
     private void FixedUpdate()
@@ -60,6 +62,14 @@ public class Movement : MonoBehaviour
         }
 
         //Jumping
+        if(myRigidbody.velocity.y < -0.1)
+        {
+            myAnimator.SetBool("isFalling", true);
+        }
+        else
+        {
+            myAnimator.SetBool("isFalling", false);
+        }
         if (!Physics.Raycast(rayCastSource.position, Vector3.down, rayCastLength, groundLayer))
         {
             isGrounded = false;
@@ -68,9 +78,11 @@ public class Movement : MonoBehaviour
         {
             isGrounded = true;
         }
+        myAnimator.SetBool("isGrounded", isGrounded);
         if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
         {
             myRigidbody.velocity = Vector3.up * jumpVelocity;
+            myAnimator.SetTrigger("Jump");
         }
         if(myRigidbody.velocity.y < 0)
         {
@@ -118,6 +130,16 @@ public class Movement : MonoBehaviour
         {
             return -1f;
         }
+    }
+
+    public void ShrinkCollider()
+    {
+        GetComponent<CapsuleCollider>().height = colliderHeight/1.36f;
+    }
+
+    public void RevertCollider()
+    {
+        GetComponent<CapsuleCollider>().height = colliderHeight;
     }
 
     public void ThrowShuriken()

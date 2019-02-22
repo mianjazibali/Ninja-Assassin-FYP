@@ -18,9 +18,10 @@ public class Movement : MonoBehaviour
     private readonly float lowJumpMultiplier = 1.5f;
     public bool isGrounded;
     public Transform rayCastSource;
-    private readonly float rayCastLength = 3f;
+    private readonly float rayCastLength = 4f;
     public LayerMask groundLayer;
     private float colliderHeight;
+    public float heightFactor = 0f; //Move RayCast Source Position Little Bit Up By Factor
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -70,13 +71,17 @@ public class Movement : MonoBehaviour
         {
             myAnimator.SetBool("isFalling", false);
         }
-        if (!Physics.Raycast(rayCastSource.position, Vector3.down, rayCastLength, groundLayer))
+        //Debug.Log(Physics.Raycast(transform.position + (Vector3.right * 0.55f), Vector3.down, rayCastLength));
+        //Debug.Log(Physics.Raycast(transform.position + (Vector3.left * 0.5f), Vector3.down, rayCastLength));
+        Debug.DrawRay(transform.position + (Vector3.left * 0.55f) + (Vector3.up * heightFactor), Vector3.down, Color.red, 0.1f, true);
+        Debug.DrawRay(transform.position + (Vector3.right * 0.5f) + (Vector3.up * heightFactor), Vector3.down, Color.red, 0.1f, true);
+        if (Physics.Raycast(transform.position + (Vector3.right * 0.55f) + (Vector3.up * heightFactor), Vector3.down, rayCastLength) || Physics.Raycast(transform.position + (Vector3.left * 0.5f) + (Vector3.up * heightFactor), Vector3.down, rayCastLength))
         {
-            isGrounded = false;
+            isGrounded = true;
         }
         else
         {
-            isGrounded = true;
+            isGrounded = false;
         }
         myAnimator.SetBool("isGrounded", isGrounded);
         if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
@@ -134,11 +139,13 @@ public class Movement : MonoBehaviour
 
     public void ShrinkCollider()
     {
+        heightFactor = 0.5f;
         GetComponent<CapsuleCollider>().height = colliderHeight/1.36f;
     }
 
     public void RevertCollider()
     {
+        heightFactor = 0f;
         GetComponent<CapsuleCollider>().height = colliderHeight;
     }
 

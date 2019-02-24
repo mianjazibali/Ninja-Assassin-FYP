@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     //Shuriken variables 
     public GameObject shurikenPrefab;
     public Transform shurikenPosition;
+    public Transform shurikenPositionRunning;
     [SerializeField]
     [Range(500, 1500)]
     private float throwSpeed = 1000f;
@@ -116,6 +117,25 @@ public class Movement : MonoBehaviour
             clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
         }
     }
+
+    public void ThrowShurikenRunning()
+    {
+        float multiplier = 1;
+        if (Mathf.Abs(myRigidbody.velocity.x) > 0)
+        {
+            multiplier = 1.33f;
+        }
+        GameObject clone = Instantiate(shurikenPrefab, shurikenPositionRunning.position, shurikenPrefab.transform.rotation);
+        if (facingRight)
+        {
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed * multiplier);
+        }
+        else
+        {
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
+        }
+    }
+
     /*
     void FlySword()
     {

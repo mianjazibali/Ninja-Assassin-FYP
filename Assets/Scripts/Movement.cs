@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float jumpForce;
+    public float fallMultiplier;
+    public float jumpMultiplier;
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -43,6 +45,14 @@ public class Movement : MonoBehaviour
             grounded = false;
             myAnimator.SetTrigger("Jump");
             myRigidbody.velocity = Vector3.up * jumpForce;
+        }
+        if(myRigidbody.velocity.y < 0)
+        {
+            myRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else
+        {
+            myRigidbody.velocity += Vector3.up * Physics.gravity.y * (jumpMultiplier - 1) * Time.deltaTime;
         }
 
         groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
@@ -103,29 +113,16 @@ public class Movement : MonoBehaviour
     public void ThrowShuriken()
     {
         float multiplier = 1;
+        GameObject clone;
         if (Mathf.Abs(myRigidbody.velocity.x) > 0)
         {
-            multiplier = 1.33f;
-        }
-        GameObject clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
-        if (facingRight)
-        {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed * multiplier);
+            multiplier = 1.5f;
+            clone = Instantiate(shurikenPrefab, shurikenPositionRunning.position, shurikenPrefab.transform.rotation);
         }
         else
         {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
+            clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
         }
-    }
-
-    public void ThrowShurikenRunning()
-    {
-        float multiplier = 1;
-        if (Mathf.Abs(myRigidbody.velocity.x) > 0)
-        {
-            multiplier = 1.33f;
-        }
-        GameObject clone = Instantiate(shurikenPrefab, shurikenPositionRunning.position, shurikenPrefab.transform.rotation);
         if (facingRight)
         {
             clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed * multiplier);

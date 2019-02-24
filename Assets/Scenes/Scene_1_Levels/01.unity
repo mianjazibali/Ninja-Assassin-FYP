@@ -8806,7 +8806,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   groundCheck: {fileID: 1535243428}
-  jumpForce: 10
+  jumpForce: 8
+  fallMultiplier: 3
+  jumpMultiplier: 1.5
   shurikenPrefab: {fileID: 823818242, guid: cb126861a4383f7479d1a3d269531aee, type: 3}
   shurikenPosition: {fileID: 5409030422562661536}
   shurikenPositionRunning: {fileID: 1776624028}

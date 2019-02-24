@@ -7,20 +7,17 @@ public class Movement : MonoBehaviour
     private Animator myAnimator;
 
     //Running Variables
-    private bool movementAllowed;
-    [SerializeField]
-    private readonly float moveSpeed = 15f;
-    private bool facingRight;
+    //bool movementAllowed;
+    public float runSpeed = 15f;
+    bool facingRight;
 
     //Jumping Variables
-    private float jumpVelocity = 13f;
-    private float fallMultiplier = 3f;
-    private float lowJumpMultiplier = 1.5f;
-    private bool isGrounded;
-    private readonly float rayCastLength = 4f;
-    private float colliderHeight;
-    private float heightFactor = 0f; //Move RayCast Source Position Little Bit Up By Factor
-    private bool jumpAllowed;
+    bool grounded = false;
+    Collider[] groundCollisions;
+    float groundCheckRadius = 1f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float jumpForce;
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -33,71 +30,30 @@ public class Movement : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
-        movementAllowed = true;
-        jumpAllowed = true;
+        //movementAllowed = true;
         facingRight = true;
-        isGrounded = true;
-        colliderHeight = GetComponent<CapsuleCollider>().height;
     }
 
     private void FixedUpdate()
     {
-        //Movement
-        float moveInput = 0f;
-        moveInput = CrossPlatformInputManager.GetAxis("Horizontal");
-        if (moveInput < 0 && facingRight && movementAllowed)
+        myAnimator.SetFloat("verticalSpeed", myRigidbody.velocity.y);
+        if (grounded && CrossPlatformInputManager.GetButtonDown("Jump"))
         {
-            FlipPlayer();
-        }
-        else if (moveInput > 0 && !facingRight && movementAllowed)
-        {
-            FlipPlayer();
-        }
-        if (movementAllowed)
-        {
-            myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0f);
-        }
-        if (isGrounded)
-        {
-            myAnimator.SetFloat("moveSpeed", Mathf.Abs(moveInput));
+            grounded = false;
+            myAnimator.SetTrigger("Jump");
+            myRigidbody.velocity = Vector3.up * jumpForce;
         }
 
-        //Jumping
-        if(myRigidbody.velocity.y < -0.1)
-        {
-            myAnimator.SetBool("isFalling", true);
-        }
-        else
-        {
-            myAnimator.SetBool("isFalling", false);
-        }
-        //Debug.Log(Physics.Raycast(transform.position + (Vector3.right * 0.55f), Vector3.down, rayCastLength));
-        //Debug.Log(Physics.Raycast(transform.position + (Vector3.left * 0.5f), Vector3.down, rayCastLength));
-        Debug.DrawRay(transform.position + (Vector3.left * 0.55f) + (Vector3.up * heightFactor), Vector3.down, Color.red, 0.1f, true);
-        Debug.DrawRay(transform.position + (Vector3.right * 0.5f) + (Vector3.up * heightFactor), Vector3.down, Color.red, 0.1f, true);
-        if (Physics.Raycast(transform.position + (Vector3.right * 0.55f) + (Vector3.up * heightFactor), Vector3.down, rayCastLength) || Physics.Raycast(transform.position + (Vector3.left * 0.5f) + (Vector3.up * heightFactor), Vector3.down, rayCastLength))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
-        myAnimator.SetBool("isGrounded", isGrounded);
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded && jumpAllowed) 
-        {
-            jumpAllowed = false;
-            myRigidbody.velocity = Vector3.up * jumpVelocity;
-            myAnimator.SetTrigger("Jump");
-        }
-        if(myRigidbody.velocity.y < 0)
-        {
-            myRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else
-        if(myRigidbody.velocity.y > 0 && !CrossPlatformInputManager.GetButton("Jump")){
-            myRigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        if (groundCollisions.Length > 0) grounded = true;
+        else grounded = false;
+        myAnimator.SetBool("isGrounded", grounded);
+
+        float move = CrossPlatformInputManager.GetAxis("Horizontal");
+        myAnimator.SetFloat("moveSpeed", Mathf.Abs(move));
+        myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
+        if (move > 0 && !facingRight) FlipPlayer();
+        else if (move < 0 && facingRight) FlipPlayer();
 
         //Shuriken
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
@@ -138,17 +94,9 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void ShrinkCollider()
+    public void SetPosition()
     {
-        heightFactor = 0.5f;
-        GetComponent<CapsuleCollider>().height = colliderHeight/1.36f;
-    }
-
-    public void RevertCollider()
-    {
-        heightFactor = 0f;
-        jumpAllowed = true;
-        GetComponent<CapsuleCollider>().height = colliderHeight;
+        transform.position = myAnimator.deltaPosition;
     }
 
     public void ThrowShuriken()
@@ -168,9 +116,10 @@ public class Movement : MonoBehaviour
             clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
         }
     }
-
+    /*
     void FlySword()
     {
         myAnimator.SetTrigger("Sword");
     }
+    */
 }

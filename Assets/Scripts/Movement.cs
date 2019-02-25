@@ -20,6 +20,9 @@ public class Movement : MonoBehaviour
     public float jumpForce;
     public float fallMultiplier;
     public float jumpMultiplier;
+    private bool jumped;
+    public float jumpDelayTime;
+    private float nextJump;
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -32,12 +35,18 @@ public class Movement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         //movementAllowed = true;
         facingRight = true;
+        jumped = false;
+    }
+
+    private void Awake()
+    {
+        nextJump = 0f;
     }
 
     private void FixedUpdate()
     {
         myAnimator.SetFloat("verticalSpeed", myRigidbody.velocity.y);
-        if (grounded && CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (grounded && CrossPlatformInputManager.GetButtonDown("Jump") && nextJump < Time.time)
         {
             grounded = false;
             myAnimator.SetTrigger("Jump");
@@ -50,12 +59,22 @@ public class Movement : MonoBehaviour
         else
         {
             myRigidbody.velocity += Vector3.up * Physics.gravity.y * (jumpMultiplier - 1) * Time.deltaTime;
+            if(myRigidbody.velocity.y > 1)
+            {
+                jumped = true;
+            }
         }
 
         groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
         if (groundCollisions.Length > 0) grounded = true;
         else grounded = false;
         myAnimator.SetBool("isGrounded", grounded);
+
+        if(jumped && grounded)
+        {
+            nextJump = Time.time + jumpDelayTime;
+            jumped = false;
+        }
 
         if (movementAllowed)
         {

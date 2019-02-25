@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     private bool jumped;
     public float jumpDelayTime;
     private float nextJump;
+    private bool canDoubleJump;
 
     //Shuriken variables 
     public GameObject shurikenPrefab;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour
         //movementAllowed = true;
         facingRight = true;
         jumped = false;
+        canDoubleJump = true;
     }
 
     private void Awake()
@@ -46,11 +48,23 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         myAnimator.SetFloat("verticalSpeed", myRigidbody.velocity.y);
-        if (grounded && CrossPlatformInputManager.GetButtonDown("Jump") && nextJump < Time.time)
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
-            grounded = false;
-            myAnimator.SetTrigger("Jump");
-            myRigidbody.velocity = Vector3.up * jumpForce;
+            if(grounded && nextJump < Time.time)
+            {
+                canDoubleJump = true;
+                myAnimator.SetTrigger("Jump");
+                myRigidbody.velocity = Vector3.up * jumpForce;
+            }
+            else
+            {
+                if (canDoubleJump && myRigidbody.velocity.y > 0)
+                {
+                    canDoubleJump = false;
+                    myAnimator.SetTrigger("Jump");
+                    myRigidbody.velocity = Vector3.up * jumpForce * 1.5f;
+                }
+            }
         }
         if(myRigidbody.velocity.y < 0)
         {

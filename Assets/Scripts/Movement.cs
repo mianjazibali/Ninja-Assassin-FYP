@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     private Animator myAnimator;
 
     //Running Variables
-    //bool movementAllowed;
+    bool movementAllowed;
     public float runSpeed = 15f;
     bool facingRight;
 
@@ -24,9 +24,6 @@ public class Movement : MonoBehaviour
     //Shuriken variables 
     public GameObject shurikenPrefab;
     public Transform shurikenPosition;
-    public Transform shurikenPositionRunning;
-    [SerializeField]
-    [Range(500, 1500)]
     private float throwSpeed = 1000f;
 
     void Start()
@@ -60,11 +57,14 @@ public class Movement : MonoBehaviour
         else grounded = false;
         myAnimator.SetBool("isGrounded", grounded);
 
-        float move = CrossPlatformInputManager.GetAxis("Horizontal");
-        myAnimator.SetFloat("moveSpeed", Mathf.Abs(move));
-        myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
-        if (move > 0 && !facingRight) FlipPlayer();
-        else if (move < 0 && facingRight) FlipPlayer();
+        if (movementAllowed)
+        {
+            float move = CrossPlatformInputManager.GetAxis("Horizontal");
+            myAnimator.SetFloat("moveSpeed", Mathf.Abs(move));
+            myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
+            if (move > 0 && !facingRight) FlipPlayer();
+            else if (move < 0 && facingRight) FlipPlayer();
+        }
 
         //Shuriken
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
@@ -83,6 +83,17 @@ public class Movement : MonoBehaviour
         {
             //myAnimator.SetTrigger("Shuriken");
         }
+    }
+
+    public void AllowMovement()
+    {
+        movementAllowed = true;
+    }
+
+    public void BlockMovement()
+    {
+        myRigidbody.velocity = Vector3.zero;
+        movementAllowed = false;
     }
 
     void FlipPlayer()
@@ -105,31 +116,16 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void SetPosition()
-    {
-        transform.position = myAnimator.deltaPosition;
-    }
-
     public void ThrowShuriken()
     {
-        float multiplier = 1;
-        GameObject clone;
-        if (Mathf.Abs(myRigidbody.velocity.x) > 0)
-        {
-            multiplier = 1.5f;
-            clone = Instantiate(shurikenPrefab, shurikenPositionRunning.position, shurikenPrefab.transform.rotation);
-        }
-        else
-        {
-            clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
-        }
+        GameObject clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
         if (facingRight)
         {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed * multiplier);
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed);
         }
         else
         {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed * multiplier);
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed);
         }
     }
 

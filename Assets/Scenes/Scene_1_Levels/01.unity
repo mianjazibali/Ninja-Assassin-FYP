@@ -8776,9 +8776,8 @@ MonoBehaviour:
     m_Bits: 512
   groundCheck: {fileID: 1535243428}
   jumpForce: 8
-  fallMultiplier: 1.5
+  fallMultiplier: 3
   jumpMultiplier: 1.5
-  jumped: 0
   jumpDelayTime: 0.3
   shurikenPrefab: {fileID: 823818242, guid: cb126861a4383f7479d1a3d269531aee, type: 3}
   shurikenPosition: {fileID: 5409030422562661536}

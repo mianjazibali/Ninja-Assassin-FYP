@@ -6,14 +6,15 @@ public class Cleaner : MonoBehaviour
 {
     public GameObject bloodSplashFX;
 
-    public float respawnDelayTime = 2f;
+    public float respawnDelayTime = 1.2f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            other.gameObject.SetActive(false);
-            StartCoroutine(Respawn(other.gameObject));
+            GameObject player = other.transform.parent.gameObject;
+            player.SetActive(false);
+            StartCoroutine(Respawn(player));
         }
     }
 

@@ -11,6 +11,10 @@ public class Movement : MonoBehaviour
     public float runSpeed = 15f;
     bool facingRight;
 
+    //Wall Check Variables
+    public Transform wallCheck;
+    public float wallCheckLength;
+
     //Jumping Variables
     bool grounded = false;
     Collider[] groundCollisions;
@@ -34,7 +38,7 @@ public class Movement : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
-        //movementAllowed = true;
+        movementAllowed = true;
         facingRight = true;
         jumped = false;
         canDoubleJump = true;
@@ -93,10 +97,14 @@ public class Movement : MonoBehaviour
         if (movementAllowed)
         {
             float move = CrossPlatformInputManager.GetAxis("Horizontal");
-            myAnimator.SetFloat("moveSpeed", Mathf.Abs(move));
-            myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
             if (move > 0 && !facingRight) FlipPlayer();
             else if (move < 0 && facingRight) FlipPlayer();
+            if(Physics.Raycast(wallCheck.position, Vector3.right * GetPlayerFacing(), wallCheckLength, groundLayer))
+            {
+                move = 0;
+            }
+            myAnimator.SetFloat("moveSpeed", Mathf.Abs(move));
+            myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
         }
 
         //Shuriken

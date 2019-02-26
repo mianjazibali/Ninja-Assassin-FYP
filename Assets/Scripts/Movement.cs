@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                if (canDoubleJump && myRigidbody.velocity.y > 0)
+                if (canDoubleJump && jumped)
                 {
                     canDoubleJump = false;
                     myAnimator.SetTrigger("Jump");

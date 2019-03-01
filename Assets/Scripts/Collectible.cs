@@ -29,39 +29,41 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(collectibleType == CollectibleType.Scroll)
+        if(other.tag == "Player")
         {
-            Instantiate(scrollFX, transform.position, transform.rotation);
-            levelManager.IncrementScroll();
-            Destroy(gameObject);
+            if (collectibleType == CollectibleType.Scroll)
+            {
+                Instantiate(scrollFX, transform.position, transform.rotation);
+                levelManager.IncrementScroll();
+                Destroy(gameObject);
+            }
+            else
+            if (collectibleType == CollectibleType.Coins)
+            {
+                Instantiate(coinsFX, transform.position, transform.rotation);
+                levelManager.SetCoins(coinsCount);
+                Destroy(gameObject);
+            }
+            else
+            if (collectibleType == CollectibleType.Life)
+            {
+                Instantiate(lifeFX, transform.position, transform.rotation);
+                playerHealth.IncrementCurrentLives();
+                Destroy(gameObject);
+            }
+            else
+            if (collectibleType == CollectibleType.Shield)
+            {
+                StartCoroutine(PickupShield());
+            }
         }
-        else
-        if (collectibleType == CollectibleType.Coins)
-        {
-            Instantiate(coinsFX, transform.position, transform.rotation);
-            levelManager.SetCoins(coinsCount);
-            Destroy(gameObject);
-        }
-        else
-        if (collectibleType == CollectibleType.Life)
-        {
-            Instantiate(lifeFX, transform.position, transform.rotation);
-            playerHealth.IncrementCurrentLives();
-            Destroy(gameObject);
-        }
-        else
-        if (collectibleType == CollectibleType.Shield)
-        {
-            StartCoroutine( PickupShield() );
-        }
-        
     }
 
     IEnumerator PickupShield()
     {
         Instantiate(shieldFX, transform.position, transform.rotation);
         playerHealth.SetShield(true);
-        GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(shieldDuration);
         playerHealth.SetShield(false);

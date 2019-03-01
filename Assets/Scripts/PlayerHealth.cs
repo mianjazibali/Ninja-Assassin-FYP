@@ -37,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddDamage(float damage)
     {
+        if (isShieldActive) return;
         currentHealth = currentHealth - damage;
         if (currentHealth <= 0)
         {

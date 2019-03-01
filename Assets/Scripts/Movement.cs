@@ -83,6 +83,7 @@ public class Movement : MonoBehaviour
             }
         }
 
+        //Debug.DrawRay(transform.position, Vector3.down, Color.red, 1f);
         groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
         if (groundCollisions.Length > 0) grounded = true;
         else grounded = false;

@@ -12,15 +12,14 @@ public class Movement : MonoBehaviour
     bool facingRight;
 
     //Wall Check Variables
-    public Transform wallCheck;
-    public float wallCheckLength;
+    public float wallCheckDistance;
 
     //Jumping Variables
     bool grounded = false;
     Collider[] groundCollisions;
-    float groundCheckRadius = 1f;
+    public float groundCheckRadius;
     public LayerMask groundLayer;
-    public Transform groundCheck;
+    public Transform groundChecker;
     public float jumpForce;
     public float fallMultiplier;
     public float jumpMultiplier;
@@ -73,6 +72,7 @@ public class Movement : MonoBehaviour
         if(myRigidbody.velocity.y < 0)
         {
             myRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            canDoubleJump = false;
         }
         else
         {
@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
         }
 
         //Debug.DrawRay(transform.position, Vector3.down, Color.red, 1f);
-        groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        groundCollisions = Physics.OverlapSphere(groundChecker.position, groundCheckRadius, groundLayer);
         if (groundCollisions.Length > 0) grounded = true;
         else grounded = false;
         myAnimator.SetBool("isGrounded", grounded);
@@ -100,7 +100,8 @@ public class Movement : MonoBehaviour
             float move = CrossPlatformInputManager.GetAxis("Horizontal");
             if (move > 0 && !facingRight) FlipPlayer();
             else if (move < 0 && facingRight) FlipPlayer();
-            if(Physics.Raycast(wallCheck.position, Vector3.right * GetPlayerFacing(), wallCheckLength, groundLayer))
+            //Debug.DrawRay(groundCheck.position + Vector3.up * 1f, Vector3.right * GetPlayerFacing(), Color.red, 1f);
+            if (Physics.Raycast(groundChecker.position + Vector3.up * 1f, Vector3.right * GetPlayerFacing(), wallCheckDistance, groundLayer))
             {
                 move = 0;
             }

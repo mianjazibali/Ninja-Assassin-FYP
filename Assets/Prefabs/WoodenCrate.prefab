@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7208872607283916904}
   - component: {fileID: 2372651790460558643}
   - component: {fileID: 51547480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WoodenCrate
   m_TagString: Destructible
   m_Icon: {fileID: 0}

@@ -162,14 +162,17 @@ public class Movement : MonoBehaviour
 
     public void ThrowShuriken()
     {
+        float tempThrowSpeed = throwSpeed;
         GameObject clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
+        if (Mathf.Abs(myRigidbody.velocity.x) > 0) tempThrowSpeed = throwSpeed * 1.5f;
         if (facingRight)
         {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * throwSpeed);
+            
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * tempThrowSpeed);
         }
         else
         {
-            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * throwSpeed);
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * tempThrowSpeed);
         }
     }
 

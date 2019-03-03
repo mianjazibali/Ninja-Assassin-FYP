@@ -16,7 +16,7 @@ public class Shuriken : MonoBehaviour
         if(other.tag == "Destructible")
         {
             other.GetComponent<Destructible>().AddDamage(damagePower);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

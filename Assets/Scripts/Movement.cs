@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
         //Sword
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
-            //myAnimator.SetTrigger("Shuriken");
+            myAnimator.SetTrigger("Sword");
         }
 
         //Disguise
@@ -175,11 +175,4 @@ public class Movement : MonoBehaviour
             clone.GetComponent<Rigidbody>().AddForce(Vector3.left * tempThrowSpeed);
         }
     }
-
-    /*
-    void FlySword()
-    {
-        myAnimator.SetTrigger("Sword");
-    }
-    */
 }

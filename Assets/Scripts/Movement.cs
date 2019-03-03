@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     //Shuriken variables 
     public GameObject shurikenPrefab;
     public Transform shurikenPosition;
+    [SerializeField]
     private float throwSpeed = 1000f;
 
     void Start()
@@ -51,7 +52,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         myAnimator.SetFloat("verticalSpeed", myRigidbody.velocity.y);
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && movementAllowed)
         {
             if(grounded && nextJump < Time.time)
             {

@@ -28,11 +28,14 @@ public class Movement : MonoBehaviour
     private float nextJump;
     private bool canDoubleJump;
 
-    //Shuriken variables 
+    //Shuriken Variables 
     public GameObject shurikenPrefab;
     public Transform shurikenPosition;
     [SerializeField]
     private float throwSpeed = 1000f;
+
+    //Sword Variables
+    private bool isAttacking;
 
     void Start()
     {
@@ -42,6 +45,7 @@ public class Movement : MonoBehaviour
         facingRight = true;
         jumped = false;
         canDoubleJump = true;
+        isAttacking = false;
     }
 
     private void Awake()
@@ -110,19 +114,18 @@ public class Movement : MonoBehaviour
             myRigidbody.velocity = new Vector3(move * runSpeed, myRigidbody.velocity.y, 0);
         }
 
-        //Shuriken
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1") && !isAttacking)
         {
+            isAttacking = true;
             myAnimator.SetTrigger("Shuriken");
         }
-
-        //Sword
-        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+        else
+        if (CrossPlatformInputManager.GetButtonDown("Fire2") && !isAttacking)
         {
+            isAttacking = true;
             myAnimator.SetTrigger("Sword");
         }
-
-        //Disguise
+        else
         if (CrossPlatformInputManager.GetButtonDown("Fire3"))
         {
             //myAnimator.SetTrigger("Shuriken");
@@ -138,6 +141,11 @@ public class Movement : MonoBehaviour
     {
         myRigidbody.velocity = Vector3.zero;
         movementAllowed = false;
+    }
+
+    public void UnAttack()
+    {
+        isAttacking = false;
     }
 
     void FlipPlayer()

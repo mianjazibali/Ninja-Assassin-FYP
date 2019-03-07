@@ -15,8 +15,7 @@ public class Checkpoint : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //Save Player Position In Level Manager Variable
-            levelManager.lastCheckpointPosition = new Vector3 (transform.position.x, other.transform.position.y, other.transform.position.z);
+            levelManager.lastCheckpointPosition = new Vector3 (transform.position.x, levelManager.lastCheckpointPosition.y, levelManager.lastCheckpointPosition.z);
         }
     }
 }

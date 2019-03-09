@@ -61,11 +61,13 @@ MonoBehaviour:
   collectibleType: 3
   coinsCount: 0
   shieldDuration: 10
-  scrollFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+  scrollPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
     type: 3}
-  coinsFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142, type: 3}
-  lifeFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142, type: 3}
-  shieldFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+  coinsPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+    type: 3}
+  lifePickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+    type: 3}
+  shieldPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
     type: 3}
 --- !u!1 &6898399381558066491
 GameObject:

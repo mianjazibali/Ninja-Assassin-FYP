@@ -16,10 +16,10 @@ public class Collectible : MonoBehaviour
     [SerializeField]
     private float shieldDuration = 0;
 
-    public GameObject scrollFX;
-    public GameObject coinsFX;
-    public GameObject lifeFX;
-    public GameObject shieldFX;
+    public GameObject scrollPickupFX;
+    public GameObject coinsPickupFX;
+    public GameObject lifePickupFX;
+    public GameObject shieldPickupFX;
 
     private void Start()
     {
@@ -33,21 +33,21 @@ public class Collectible : MonoBehaviour
         {
             if (collectibleType == CollectibleType.Scroll)
             {
-                Instantiate(scrollFX, transform.position, transform.rotation);
+                Instantiate(scrollPickupFX, transform.position, transform.rotation);
                 levelManager.IncrementScroll();
                 Destroy(gameObject);
             }
             else
             if (collectibleType == CollectibleType.Coins)
             {
-                Instantiate(coinsFX, transform.position, transform.rotation);
+                Instantiate(coinsPickupFX, transform.position, transform.rotation);
                 levelManager.SetCoins(coinsCount);
                 Destroy(gameObject);
             }
             else
             if (collectibleType == CollectibleType.Life)
             {
-                Instantiate(lifeFX, transform.position, transform.rotation);
+                Instantiate(lifePickupFX, transform.position, transform.rotation);
                 playerHealth.IncrementCurrentLives();
                 Destroy(gameObject);
             }
@@ -61,7 +61,7 @@ public class Collectible : MonoBehaviour
 
     IEnumerator PickupShield()
     {
-        Instantiate(shieldFX, transform.position, transform.rotation);
+        Instantiate(shieldPickupFX, transform.position, transform.rotation);
         playerHealth.SetShield(true, shieldDuration);
         gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;

@@ -63,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
             currentLives--;
             currentHealth = totalHealth;
         }
+        shieldFX.SetActive(false);
         transform.position = levelManager.lastCheckpointPosition;
     }
 

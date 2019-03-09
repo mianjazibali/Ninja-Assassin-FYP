@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4543256817857579434
+--- !u!1 &4357304790300798296
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1201877853682647347}
-  - component: {fileID: 2079828892001242099}
-  - component: {fileID: 7127619787781308761}
+  - component: {fileID: 788184844933196125}
+  - component: {fileID: 4439480510288550022}
+  - component: {fileID: 4066751184211856117}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1201877853682647347
+--- !u!4 &788184844933196125
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4543256817857579434}
+  m_GameObject: {fileID: 4357304790300798296}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
-  m_Father: {fileID: 3414298813096160850}
+  m_Father: {fileID: 1290532274666943085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2079828892001242099
+--- !u!33 &4439480510288550022
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4543256817857579434}
+  m_GameObject: {fileID: 4357304790300798296}
   m_Mesh: {fileID: 4300000, guid: 0ecaab323ba35dc4596be1ff83d20eca, type: 3}
---- !u!23 &7127619787781308761
+--- !u!23 &4066751184211856117
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4543256817857579434}
+  m_GameObject: {fileID: 4357304790300798296}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6787d9857ebc4e449a88016d84a8d3e, type: 2}
+  - {fileID: 2100000, guid: 4cc3e34f45bdd904da8adfec42d6f0f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &5923724944113412905
+--- !u!1 &8528906341186471080
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,64 +85,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3414298813096160850}
-  - component: {fileID: 5923724944113412906}
-  - component: {fileID: 5923724944113412907}
+  - component: {fileID: 1290532274666943085}
+  - component: {fileID: 4244284009746538593}
+  - component: {fileID: 57478326266056213}
   m_Layer: 0
-  m_Name: Potion_Life
+  m_Name: Potion_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3414298813096160850
+--- !u!4 &1290532274666943085
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5923724944113412905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.03, y: 0, z: 0}
+  m_GameObject: {fileID: 8528906341186471080}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1201877853682647347}
+  - {fileID: 788184844933196125}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5923724944113412906
+--- !u!135 &4244284009746538593
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5923724944113412905}
+  m_GameObject: {fileID: 8528906341186471080}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &5923724944113412907
+--- !u!114 &57478326266056213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5923724944113412905}
+  m_GameObject: {fileID: 8528906341186471080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e6c9c84dbd4ee549a9847f9c03f48c8, type: 3}
+  m_Script: {fileID: 11500000, guid: cf15aa43615f00d4b9b9f19fec919826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleType: 2
-  coinsCount: 0
-  shieldDuration: 5
-  scrollPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
-    type: 3}
-  coinsPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
-    type: 3}
-  lifePickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
-    type: 3}
+  shieldDuration: 10
   shieldPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
     type: 3}

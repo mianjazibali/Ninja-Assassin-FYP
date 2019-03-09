@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         ps = shieldFX.transform.GetChild(0).GetComponent<ParticleSystem>();
         ps.Stop();
         var main = ps.main;
-        main.duration = duration - 3f;
+        main.duration = duration - 2.5f;
         ps.Play();
         shieldFX.SetActive(status);
     }

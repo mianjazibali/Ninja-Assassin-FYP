@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private LevelManager levelManager;
 
     //Shield Variables
+    public GameObject shieldFX;
     [SerializeField]
     private bool isShieldActive;
 
@@ -70,8 +71,21 @@ public class PlayerHealth : MonoBehaviour
         currentLives++;
     }
 
+    public void SetShield(bool status, float duration)
+    {
+        isShieldActive = status;
+        ParticleSystem ps;
+        ps = shieldFX.transform.GetChild(0).GetComponent<ParticleSystem>();
+        ps.Stop();
+        var main = ps.main;
+        main.duration = duration - 3f;
+        ps.Play();
+        shieldFX.SetActive(status);
+    }
+
     public void SetShield(bool status)
     {
-        isShieldActive = status; 
+        isShieldActive = status;
+        shieldFX.SetActive(status);
     }
 }

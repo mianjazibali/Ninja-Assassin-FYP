@@ -62,7 +62,7 @@ public class Collectible : MonoBehaviour
     IEnumerator PickupShield()
     {
         Instantiate(shieldFX, transform.position, transform.rotation);
-        playerHealth.SetShield(true);
+        playerHealth.SetShield(true, shieldDuration);
         gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(shieldDuration);

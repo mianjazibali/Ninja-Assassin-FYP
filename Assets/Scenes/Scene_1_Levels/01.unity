@@ -7344,6 +7344,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002597630}
   m_CullTransparentMesh: 0
+--- !u!1 &2015470939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7726694784129215203, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7726694782919184312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2015470940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7726694784129215204, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
@@ -10177,6 +10183,7 @@ MonoBehaviour:
   totalHealth: 100
   currentHealth: 0
   respawnDelayTime: 1
+  shieldFX: {fileID: 2015470939}
   isShieldActive: 0
 --- !u!222 &7292574078790346252
 CanvasRenderer:
@@ -11690,6 +11697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 7726694784129215203, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7726694784129215204, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11743,6 +11755,11 @@ PrefabInstance:
     - target: {fileID: 7726694784129215204, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505499978565850668, guid: 9e9e9ad6f2a17414ea9a8ddefbf344f6,
+        type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

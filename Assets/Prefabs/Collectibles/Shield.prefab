@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4244284009746538593}
   - component: {fileID: 57478326266056213}
   m_Layer: 0
-  m_Name: Potion_Shield
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8528906341186471080}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -136,5 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldDuration: 10
-  shieldPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+  shieldPickupFX: {fileID: 34620815606388598, guid: 1e35ec6f92c61104492e8bcb4d3b5238,
     type: 3}

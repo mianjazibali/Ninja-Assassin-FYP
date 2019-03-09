@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickupShield : MonoBehaviour
 {
+    private GameObject player;
     private LevelManager levelManager;
     private PlayerHealth playerHealth;
 
@@ -11,11 +12,14 @@ public class PickupShield : MonoBehaviour
     private float shieldDuration = 0;
 
     public GameObject shieldPickupFX;
+    private Transform pickupTransform;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerHealth = player.GetComponent<PlayerHealth>();
+        pickupTransform = shieldPickupFX.transform;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +32,8 @@ public class PickupShield : MonoBehaviour
 
     IEnumerator Pick()
     {
-        Instantiate(shieldPickupFX, transform.position, shieldPickupFX.transform.rotation);
+        GameObject fx = Instantiate(shieldPickupFX, pickupTransform.position, pickupTransform.rotation);
+        fx.transform.SetParent(player.transform, false);
         playerHealth.SetShield(true, shieldDuration);
         gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;

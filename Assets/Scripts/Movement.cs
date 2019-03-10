@@ -143,6 +143,11 @@ public class Movement : MonoBehaviour
         movementAllowed = false;
     }
 
+    public void Attack()
+    {
+        isAttacking = true;
+    }
+
     public void UnAttack()
     {
         isAttacking = false;

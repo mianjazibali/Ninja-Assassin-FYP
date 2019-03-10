@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     //Reference Variables
     private LevelManager levelManager;
+    private Animator myAnimator;
 
     //Shield Variables
     public GameObject shieldFX;
@@ -26,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         currentLives = totalLives;
         currentHealth = totalHealth;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        myAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -63,7 +65,12 @@ public class PlayerHealth : MonoBehaviour
             currentLives--;
             currentHealth = totalHealth;
         }
-        shieldFX.SetActive(false);
+        if (isShieldActive)
+        {
+            isShieldActive = false;
+            shieldFX.SetActive(isShieldActive);
+        }
+        myAnimator.SetTrigger("Respawn");
         transform.position = levelManager.lastCheckpointPosition;
     }
 

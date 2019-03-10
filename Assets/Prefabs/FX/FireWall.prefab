@@ -9260,8 +9260,10 @@ GameObject:
   - component: {fileID: 379238284173866438}
   - component: {fileID: 2560567734644737411}
   - component: {fileID: 6419525677188850998}
+  - component: {fileID: 1549814754}
+  - component: {fileID: 4690984789439433394}
   m_Layer: 0
-  m_Name: Fire_wall_w_smoke
+  m_Name: FireWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9274,7 +9276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8926888416372935010}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9283,7 +9285,7 @@ Transform:
   - {fileID: 8803557656300982836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!198 &2560567734644737411
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -13842,3 +13844,32 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!136 &1549814754
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926888416372935010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.4725276
+  m_Height: 3.5026457
+  m_Direction: 2
+  m_Center: {x: -0.028742313, y: -0.00048041344, z: -1.1426817}
+--- !u!114 &4690984789439433394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926888416372935010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5678a534cc94c0c488c60ce61df5d671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFireFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+    type: 3}
+  respawnDelayTime: 2.35

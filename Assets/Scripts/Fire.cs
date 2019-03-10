@@ -30,8 +30,8 @@ public class Fire : MonoBehaviour
 
     IEnumerator Burn(GameObject player)
     {
-        GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
-        fx.transform.SetParent(player.transform, false);
+        //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
+        //fx.transform.SetParent(player.transform, false);
         player.GetComponent<Animator>().SetTrigger("Burn");
         yield return new WaitForSeconds(respawnDelayTime);
         player.GetComponent<PlayerHealth>().Respawn();

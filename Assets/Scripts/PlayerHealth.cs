@@ -19,8 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     //Shield Variables
     public GameObject shieldFX;
-    [SerializeField]
-    private bool isShieldActive;
+    public bool isShieldActive;
 
     private void Start()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    private PlayerHealth playerHealth;
+
     public GameObject playerFireFX;
     private Transform playerFireTransform;
 
@@ -12,13 +14,14 @@ public class Fire : MonoBehaviour
 
     private void Start()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerFireTransform = playerFireFX.transform;
         isBurning = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !playerHealth.isShieldActive)
         {
             if (!isBurning)
             {

@@ -32,9 +32,10 @@ public class Fire : MonoBehaviour
     {
         //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
         //fx.transform.SetParent(player.transform, false);
-        player.GetComponent<Animator>().SetTrigger("Burn");
+        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
         yield return new WaitForSeconds(respawnDelayTime);
-        player.GetComponent<PlayerHealth>().Respawn();
         isBurning = false;
+        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
+        player.GetComponent<PlayerHealth>().Respawn();
     }
 }

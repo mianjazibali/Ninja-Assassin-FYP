@@ -21,8 +21,13 @@ public class Destructible : MonoBehaviour
         objectCurrentHealth = objectCurrentHealth - damage;
         if (objectCurrentHealth <= 0)
         {
-            Instantiate(destroyedVersion, transform.position, transform.rotation);
-            Destroy(gameObject);
+            Destroy();
         }
+    }
+
+    public void Destroy()
+    {
+        Instantiate(destroyedVersion, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

@@ -9,14 +9,13 @@ public class Fire : MonoBehaviour
     public GameObject playerFireFX;
     private Transform playerFireTransform;
 
-    private bool isBurning;
+    private bool isBurning = false;
     public float respawnDelayTime = 2.35f;
 
     private void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerFireTransform = playerFireFX.transform;
-        isBurning = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,6 +38,6 @@ public class Fire : MonoBehaviour
         yield return new WaitForSeconds(respawnDelayTime);
         isBurning = false;
         player.GetComponent<Animator>().SetBool("isBurning", isBurning);
-        player.GetComponent<PlayerHealth>().Respawn();
+        playerHealth.Respawn();
     }
 }

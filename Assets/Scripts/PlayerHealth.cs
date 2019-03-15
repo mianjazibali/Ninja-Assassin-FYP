@@ -17,9 +17,12 @@ public class PlayerHealth : MonoBehaviour
     private LevelManager levelManager;
     private Animator myAnimator;
 
+    //Burn Variables
+    public bool isBurning = false;
+
     //Shield Variables
     public GameObject shieldFX;
-    public bool isShieldActive;
+    public bool isShieldActive = false;
 
     private void Start()
     {
@@ -47,16 +50,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void MakeDead()
-    {
-        /*
-        if (playerControllerTouch.isGrounded)
-        {
-            myAnimator.SetTrigger("dead");
-        }
-        */
-    }
-
     public void Respawn()
     {
         if(currentLives > 0)
@@ -69,7 +62,6 @@ public class PlayerHealth : MonoBehaviour
             isShieldActive = false;
             shieldFX.SetActive(isShieldActive);
         }
-        myAnimator.SetTrigger("Respawn");
         transform.position = levelManager.lastCheckpointPosition;
     }
 
@@ -94,5 +86,22 @@ public class PlayerHealth : MonoBehaviour
     {
         isShieldActive = status;
         shieldFX.SetActive(status);
+    }
+
+    public void Burn()
+    {
+        StartCoroutine(BurnIt());
+    }
+
+    public IEnumerator BurnIt()
+    {
+        //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
+        //fx.transform.SetParent(player.transform, false);
+        isBurning = true;
+        myAnimator.SetBool("isBurning", isBurning);
+        yield return new WaitForSeconds(respawnDelayTime);
+        isBurning = false;
+        myAnimator.SetBool("isBurning", isBurning);
+        Respawn();
     }
 }

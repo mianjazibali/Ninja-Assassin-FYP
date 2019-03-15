@@ -4,40 +4,20 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    private PlayerHealth playerHealth;
-
-    public GameObject playerFireFX;
-    private Transform playerFireTransform;
-
-    private bool isBurning = false;
-    public float respawnDelayTime = 2.35f;
+    GameObject player;
+    PlayerHealth playerHealth;
 
     private void Start()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        playerFireTransform = playerFireFX.transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && !playerHealth.isShieldActive)
+        if (other.tag == "Player" && !playerHealth.isShieldActive && !playerHealth.isBurning)
         {
-            if (!isBurning)
-            {
-                isBurning = true;
-                StartCoroutine(Burn(other.transform.parent.gameObject));
-            }
+            playerHealth.Burn();
         }
-    }
-
-    IEnumerator Burn(GameObject player)
-    {
-        //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
-        //fx.transform.SetParent(player.transform, false);
-        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
-        yield return new WaitForSeconds(respawnDelayTime);
-        isBurning = false;
-        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
-        playerHealth.Respawn();
-    }
+    }   
 }

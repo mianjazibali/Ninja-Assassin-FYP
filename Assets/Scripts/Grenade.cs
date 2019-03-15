@@ -13,10 +13,6 @@ public class Grenade : MonoBehaviour
     float countdown;
     public bool hasExploded = false;
 
-    private bool isBurning;
-    public float respawnDelayTime = 2.35f;
-
-
     void Start()
     {
         countdown = delay;
@@ -51,10 +47,10 @@ public class Grenade : MonoBehaviour
             if (nearbyObject.CompareTag("Player"))
             {
                 rb = nearbyObject.transform.parent.GetComponent<Rigidbody>();
-                if (!isBurning && !rb.GetComponent<PlayerHealth>().isShieldActive)
+                PlayerHealth playerHealth = rb.GetComponent<PlayerHealth>();
+                if (!playerHealth.isShieldActive && !playerHealth.isBurning)
                 {
-                    isBurning = true;
-                    StartCoroutine(Burn(rb.gameObject));
+                    playerHealth.Burn();
                 }
             }
             else
@@ -67,20 +63,7 @@ public class Grenade : MonoBehaviour
             {
                 rb.AddExplosionForce(force * rb.mass, transform.position, radius);
             }
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<Collider>().enabled = false;
         }
-    }
-
-    IEnumerator Burn(GameObject player)
-    {
-        //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
-        //fx.transform.SetParent(player.transform, false);
-        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
-        yield return new WaitForSeconds(respawnDelayTime);
-        isBurning = false;
-        player.GetComponent<Animator>().SetBool("isBurning", isBurning);
-        player.GetComponent<PlayerHealth>().Respawn();
         Destroy(gameObject);
     }
 }

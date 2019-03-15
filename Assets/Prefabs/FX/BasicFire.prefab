@@ -9266,9 +9266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5678a534cc94c0c488c60ce61df5d671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFireFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
-    type: 3}
-  respawnDelayTime: 2.35
 --- !u!1 &5448388856880808937
 GameObject:
   m_ObjectHideFlags: 0

@@ -555,6 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5554672578614608409}
   - component: {fileID: 4008357353879172117}
+  - component: {fileID: 3433606422992403096}
   m_Layer: 0
   m_Name: WoodenCrateCracked
   m_TagString: Untagged
@@ -611,6 +612,19 @@ MonoBehaviour:
   minForce: 25
   maxForce: 125
   radius: 10
+--- !u!114 &3433606422992403096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392207669383237282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85a990096a3ad14b91cf36f8160a492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2.5
 --- !u!1 &2678171675435317227
 GameObject:
   m_ObjectHideFlags: 0

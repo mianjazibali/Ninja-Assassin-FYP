@@ -545,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135184652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1808643, y: 2.9536011, z: -20}
+  m_LocalPosition: {x: 5.170518, y: 2.9536011, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1302179778}
@@ -1828,7 +1828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405979425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1808643, y: 2.9536011, z: -20}
+  m_LocalPosition: {x: 5.170518, y: 2.9536011, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3376,6 +3376,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 51547480, guid: e3126753b88ddd6459234786919906ae, type: 3}
+      propertyPath: reward
+      value: 
+      objectReference: {fileID: 121988322, guid: a61b7745be82648408f0d901c8cd277f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3126753b88ddd6459234786919906ae, type: 3}
 --- !u!1 &1078397419
@@ -7132,80 +7137,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002597630}
   m_CullTransparentMesh: 0
---- !u!1001 &2015257252
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4235703946098832591, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_Name
-      value: Grenade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832591, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.14322917
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235703946098832563, guid: 0d27d7d46a29705429aa8eaa8324a1db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0d27d7d46a29705429aa8eaa8324a1db, type: 3}
 --- !u!1 &2073908764
 GameObject:
   m_ObjectHideFlags: 0

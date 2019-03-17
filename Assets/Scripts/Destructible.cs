@@ -11,7 +11,7 @@ public class Destructible : MonoBehaviour
     //Destructed Version
     public GameObject destroyedVersion;
     public GameObject reward;
-    public float rewardForce = 3f;
+    public float rewardForce = 10f;
 
     GameObject player;
     Transform rewardTransform;

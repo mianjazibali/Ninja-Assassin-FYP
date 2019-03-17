@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 320031102267562185}
   - component: {fileID: 8487789703979224760}
   - component: {fileID: 8845552702153593488}
+  - component: {fileID: 17766595}
+  - component: {fileID: 17766594}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -60,6 +62,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifePickupFX: {fileID: 1068898642629318868, guid: 8a52e9f82a3a8ed4a89e8a2b45e97a66,
     type: 3}
+--- !u!65 &17766595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44564712961619741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.33814073, y: 0.5036056, z: 1}
+  m_Center: {x: 0.0091923475, y: 0.2481972, z: 0}
+--- !u!54 &17766594
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44564712961619741}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &4451969170364471504
 GameObject:
   m_ObjectHideFlags: 0

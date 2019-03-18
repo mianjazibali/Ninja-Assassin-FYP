@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    public float rotationDegreeX = 1f;
-    public float animationTime = 1f;
+    public float rotationDegreeX;
+    public float animationTime;
 
     void Start()
     {

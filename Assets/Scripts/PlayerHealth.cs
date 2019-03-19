@@ -10,9 +10,6 @@ public class PlayerHealth : MonoBehaviour
     public float totalHealth;
     public float currentHealth;
 
-    //Respawn Variables
-    public float respawnDelayTime;
-
     //Reference Variables
     private LevelManager levelManager;
     private Animator myAnimator;
@@ -88,18 +85,18 @@ public class PlayerHealth : MonoBehaviour
         shieldFX.SetActive(status);
     }
 
-    public void Burn()
+    public void Burn(float burnDuration)
     {
-        StartCoroutine(BurnIt());
+        StartCoroutine(BurnIt(burnDuration));
     }
 
-    public IEnumerator BurnIt()
+    private IEnumerator BurnIt(float burnDuration)
     {
         //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
         //fx.transform.SetParent(player.transform, false);
         isBurning = true;
         myAnimator.SetBool("isBurning", isBurning);
-        yield return new WaitForSeconds(respawnDelayTime);
+        yield return new WaitForSeconds(burnDuration);
         isBurning = false;
         myAnimator.SetBool("isBurning", isBurning);
         Respawn();

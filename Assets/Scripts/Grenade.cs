@@ -8,6 +8,8 @@ public class Grenade : MonoBehaviour
     public float radius = 5f;
     public float force = 700f;
 
+    public float burnDuration = 2.35f;
+
     public GameObject explosionFX;
 
     float countdown;
@@ -50,7 +52,7 @@ public class Grenade : MonoBehaviour
                 PlayerHealth playerHealth = rb.GetComponent<PlayerHealth>();
                 if (!playerHealth.isShieldActive && !playerHealth.isBurning)
                 {
-                    playerHealth.Burn();
+                    playerHealth.Burn(burnDuration);
                 }
             }
             else

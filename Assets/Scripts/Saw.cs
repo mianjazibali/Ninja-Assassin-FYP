@@ -8,11 +8,19 @@ public class Saw : MonoBehaviour
 
     public float respawnDelayTime = 1.2f;
 
+    GameObject player;
+    PlayerHealth playerHealth;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !playerHealth.isShieldActive)
         {
-            GameObject player = other.transform.parent.gameObject;
             player.SetActive(false);
             StartCoroutine(Respawn(player));
         }
@@ -22,7 +30,6 @@ public class Saw : MonoBehaviour
     {
         Instantiate(bloodSplashFX, player.transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
         yield return new WaitForSeconds(respawnDelayTime);
-        PlayerHealth playerHealth = player.gameObject.GetComponent<PlayerHealth>();
         playerHealth.Respawn();
         player.SetActive(true);
     }

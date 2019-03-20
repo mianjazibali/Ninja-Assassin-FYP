@@ -19,6 +19,7 @@ public class PickupScroll : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
             Instantiate(scrollPickupFX, transform.position, scrollPickupFX.transform.rotation);
             levelManager.IncrementScroll();
             Destroy(gameObject);

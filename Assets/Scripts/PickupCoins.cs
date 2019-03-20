@@ -22,6 +22,7 @@ public class PickupCoins : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
             Instantiate(coinsPickupFX, transform.position, coinsPickupFX.transform.rotation);
             levelManager.SetCoins(coinsCount);
             Destroy(gameObject);

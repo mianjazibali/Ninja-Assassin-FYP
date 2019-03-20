@@ -23,6 +23,7 @@ public class PickupLife : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
             GameObject fx = Instantiate(lifePickupFX, pickupTransform.position, pickupTransform.rotation);
             fx.transform.SetParent(player.transform, false);
             playerHealth.IncrementCurrentLives();

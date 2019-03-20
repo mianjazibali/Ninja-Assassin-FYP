@@ -26,6 +26,7 @@ public class PickupShield : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
             StartCoroutine(Pick());
         }
     }
@@ -35,7 +36,7 @@ public class PickupShield : MonoBehaviour
         GameObject fx = Instantiate(shieldPickupFX, pickupTransform.position, pickupTransform.rotation);
         fx.transform.SetParent(player.transform, false);
         playerHealth.SetShield(true, shieldDuration);
-        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(shieldDuration);
         playerHealth.SetShield(false);

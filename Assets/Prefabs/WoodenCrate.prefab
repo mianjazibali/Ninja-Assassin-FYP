@@ -124,5 +124,5 @@ MonoBehaviour:
   objectFullHealth: 10
   destroyedVersion: {fileID: 2392207669383237282, guid: 8495c9663cb228b459f8b0395f5adce1,
     type: 3}
-  reward: {fileID: 4031614372120719624, guid: 19e526633a1d0564f884537da9847cbc, type: 3}
+  reward: {fileID: 44564712961619741, guid: d72293b2e6b1a544abe011db8f89d7c0, type: 3}
   rewardForce: 10

@@ -8,6 +8,8 @@ public class Move : MonoBehaviour
     public float animationTime;
     public float delayTime;
 
+    public bool isLocal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,6 @@ public class Move : MonoBehaviour
 
     void MoveTo()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("x", positionX, "time", animationTime, "delay", delayTime, "looptype", iTween.LoopType.pingPong, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.MoveTo(gameObject, iTween.Hash("x", positionX, "time", animationTime, "delay", delayTime, "looptype", iTween.LoopType.pingPong, "easetype", iTween.EaseType.easeInOutSine, "isLocal", isLocal));
     }
 }

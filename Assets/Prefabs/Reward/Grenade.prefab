@@ -129,6 +129,7 @@ MonoBehaviour:
   delay: 3
   radius: 4
   force: 1000
+  burnDuration: 2.35
   explosionFX: {fileID: 5474151282689598062, guid: a9a19c29beeb0484da82580f592c2bdc,
     type: 3}
   hasExploded: 0

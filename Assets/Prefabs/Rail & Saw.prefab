@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573174026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36102295, y: -2.0443363, z: 1.5148396}
+  m_LocalPosition: {x: 0.36102, y: -2.0443363, z: 1.5148396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1699784052}
@@ -78,9 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040e71362aef98f40944fbc76ba53380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionX: 50
+  positionX: 20.361023
   animationTime: 2
   delayTime: 0.01
+  isLocal: 1
 --- !u!135 &148546366
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573174026}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.665
@@ -106,7 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e591f7952996a44864d3d325789d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSplashFX: {fileID: 0}
+  bloodSplashFX: {fileID: 7769761574385747191, guid: 545648ce448a0a5439153ed1bf9fdb14,
+    type: 3}
   respawnDelayTime: 1.2
 --- !u!1 &658516775
 GameObject:

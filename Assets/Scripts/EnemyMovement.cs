@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform pointB;
     public float moveSpeed = 10f;
     public float stayDuration = 3f;
+    public float attackDuration = 3f;
 
     private Rigidbody myRigidbody;
     private Animator myAnimator;
@@ -61,16 +62,7 @@ public class EnemyMovement : MonoBehaviour
         isCoroutineRunning = false;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            StopCoroutine(DelayedFlip());
-            InstantFlip();
-        }
-    }
-
-    void InstantFlip()
+    public void InstantFlip()
     {
         isCoroutineRunning = true;
         StopAllCoroutines();
@@ -80,6 +72,24 @@ public class EnemyMovement : MonoBehaviour
         transform.localScale = originalScale;
         if (facingRight) moveInput = 1f;
         else moveInput = -1f;
+        isCoroutineRunning = false;
+    }
+
+    public void Attack()
+    {
+        if(!isCoroutineRunning)
+        StartCoroutine(DelayedAttack());
+    }
+
+    IEnumerator DelayedAttack()
+    {
+        isCoroutineRunning = true;
+        float temp = moveInput;
+        moveInput = 0f;
+        myRigidbody.velocity = Vector3.zero;
+        myAnimator.SetTrigger("Attack");
+        yield return new WaitForSeconds(attackDuration);
+        moveInput = temp;
         isCoroutineRunning = false;
     }
 }

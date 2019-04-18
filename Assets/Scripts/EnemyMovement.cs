@@ -27,12 +27,12 @@ public class EnemyMovement : MonoBehaviour
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
         if(transform.localPosition.x >= pointB.localPosition.x && facingRight && !isCoroutineRunning)
         {
-            StartCoroutine(Flip());
+            StartCoroutine(DelayedFlip());
         }
         else
         if(transform.localPosition.x <= pointA.localPosition.x && !facingRight && !isCoroutineRunning)
         {
-            StartCoroutine(Flip());
+            StartCoroutine(DelayedFlip());
         }
         
         if (facingRight)
@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
-    IEnumerator Flip()
+    IEnumerator DelayedFlip()
     {
         isCoroutineRunning = true;
         float temp = moveInput;
@@ -58,6 +58,28 @@ public class EnemyMovement : MonoBehaviour
         originalScale.z = -1 * originalScale.z;
         transform.localScale = originalScale;
         moveInput = temp * -1f;
+        isCoroutineRunning = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StopCoroutine(DelayedFlip());
+            InstantFlip();
+        }
+    }
+
+    void InstantFlip()
+    {
+        isCoroutineRunning = true;
+        StopAllCoroutines();
+        facingRight = !facingRight;
+        Vector3 originalScale = transform.localScale;
+        originalScale.z = -1 * originalScale.z;
+        transform.localScale = originalScale;
+        if (facingRight) moveInput = 1f;
+        else moveInput = -1f;
         isCoroutineRunning = false;
     }
 }

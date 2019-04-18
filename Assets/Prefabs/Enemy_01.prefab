@@ -44,11 +44,38 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!136 &721531380
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535379901478759800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.011015136
+  m_Height: 0.063498154
+  m_Direction: 1
+  m_Center: {x: 1.2245706e-17, y: 0.0320916, z: 0.0010151366}
+--- !u!65 &721531381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535379901478759800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.032104686, y: 0.055727873, z: 0.020157252}
+  m_Center: {x: -0.00063175557, y: 0.03479304, z: -0.020586982}
 --- !u!114 &8079722079515458507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 8079722078876724657}
   pointB: {fileID: 8079722078540561408}
-  moveSpeed: 7
+  moveSpeed: 6
   stayDuration: 3.4
 --- !u!1 &8079722078540561411
 GameObject:
@@ -142,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400126, guid: 04f01d124ae06f540811c7321582efca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 400126, guid: 04f01d124ae06f540811c7321582efca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -192,6 +219,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 04f01d124ae06f540811c7321582efca, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 153afbf75e808464c965987ab8f4c404, type: 2}
     - target: {fileID: 13700000, guid: 04f01d124ae06f540811c7321582efca, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

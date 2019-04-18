@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
     public float animationTime;
     public float delayTime;
 
-    public bool isLocal;
+    private readonly bool isLocal = true;
 
     // Start is called before the first frame update
     void Start()

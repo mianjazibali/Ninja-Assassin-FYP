@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack01 : MonoBehaviour
+public class EnemyFlipAttack : MonoBehaviour
 {
     public bool flip = false;
     public bool attack = false;
@@ -16,14 +16,17 @@ public class EnemyAttack01 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (flip)
+        if (other.CompareTag("Player"))
         {
-            enemyMovement.InstantFlip();
-        }
-        
-        if (attack)
-        {
-            enemyMovement.Attack();
+            if (flip)
+            {
+                enemyMovement.InstantFlip();
+            }
+
+            if (attack)
+            {
+                enemyMovement.Attack();
+            }
         }
     }
 }

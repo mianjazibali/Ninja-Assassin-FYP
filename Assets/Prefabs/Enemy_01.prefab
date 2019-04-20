@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.032104686, y: 0.053986672, z: 0.04712215}
-  m_Center: {x: -0.00063175557, y: -0.0033385681, z: 0.005498677}
+  m_Size: {x: 0.032104686, y: 0.053986672, z: 0.03903546}
+  m_Center: {x: -0.0006317555, y: -0.0033385681, z: 0.0014553288}
 --- !u!114 &1341634869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +102,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.032104686, y: 0.053986672, z: 0.04712215}
-  m_Center: {x: -0.00063175557, y: -0.0033385681, z: -0.0647}
+  m_Size: {x: 0.032104686, y: 0.053986672, z: 0.044365816}
+  m_Center: {x: -0.0006317561, y: -0.0033385681, z: -0.06332183}
 --- !u!114 &1925728292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4535379900968455194}
   m_Layer: 0
   m_Name: Enemy_01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,6 +198,20 @@ MonoBehaviour:
   moveSpeed: 6
   stayDuration: 3.4
   attackDuration: 2
+--- !u!114 &1272214511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535379901478759800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2a522fcdcc86549b50e8ffaaa7932e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 30
+  currentHealth: 0
 --- !u!1 &8079722078540561411
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +281,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100126, guid: 04f01d124ae06f540811c7321582efca, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 100126, guid: 04f01d124ae06f540811c7321582efca, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400126, guid: 04f01d124ae06f540811c7321582efca, type: 3}

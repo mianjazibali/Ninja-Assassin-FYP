@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978324413e136b345afe43fccf443c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodSplashFX: {fileID: 7769761574385747191, guid: 545648ce448a0a5439153ed1bf9fdb14,
+    type: 3}
   damagePower: 10
 --- !u!114 &8111306048667953757
 MonoBehaviour:

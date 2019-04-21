@@ -6,8 +6,10 @@ public class EnemyFlipAttack : MonoBehaviour
 {
     public bool flip = false;
     public bool attack = false;
+    public bool flipOnHit = false;
 
     EnemyMovement enemyMovement;
+    bool isEntered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,14 @@ public class EnemyFlipAttack : MonoBehaviour
             {
                 enemyMovement.InstantAttack();
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("PlayerWeapon") && flipOnHit)
+        {
+            enemyMovement.InstantFlip();
         }
     }
 }

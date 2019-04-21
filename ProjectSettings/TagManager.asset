@@ -12,6 +12,8 @@ TagManager:
   - LevelManager
   - Destructible
   - Enemy
+  - EnemyWeapon
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

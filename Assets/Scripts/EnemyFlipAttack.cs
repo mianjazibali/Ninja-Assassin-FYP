@@ -25,7 +25,7 @@ public class EnemyFlipAttack : MonoBehaviour
 
             if (attack)
             {
-                enemyMovement.Attack();
+                enemyMovement.InstantAttack();
             }
         }
     }

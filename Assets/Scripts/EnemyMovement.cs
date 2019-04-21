@@ -15,7 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     private bool facingRight = true;
     private float moveInput = 1;
-    private bool isCoroutineRunning = false;
+    private bool isLooking = false;
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -26,16 +27,16 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
-        if(transform.localPosition.x >= pointB.localPosition.x && facingRight && !isCoroutineRunning)
+        if (transform.localPosition.x >= pointB.localPosition.x && facingRight && !isLooking)
         {
             StartCoroutine(DelayedFlip());
         }
         else
-        if(transform.localPosition.x <= pointA.localPosition.x && !facingRight && !isCoroutineRunning)
+        if (transform.localPosition.x <= pointA.localPosition.x && !facingRight && !isLooking)
         {
             StartCoroutine(DelayedFlip());
         }
-        
+
         if (facingRight)
         {
             myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
@@ -44,12 +45,12 @@ public class EnemyMovement : MonoBehaviour
         {
             myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
         }
-        
+
     }
 
     IEnumerator DelayedFlip()
     {
-        isCoroutineRunning = true;
+        isLooking = true;
         float temp = moveInput;
         moveInput = 0f;
         myRigidbody.velocity = Vector3.zero;
@@ -59,12 +60,11 @@ public class EnemyMovement : MonoBehaviour
         originalScale.z = -1 * originalScale.z;
         transform.localScale = originalScale;
         moveInput = temp * -1f;
-        isCoroutineRunning = false;
+        isLooking = false;
     }
 
     public void InstantFlip()
     {
-        isCoroutineRunning = true;
         StopAllCoroutines();
         facingRight = !facingRight;
         Vector3 originalScale = transform.localScale;
@@ -72,24 +72,24 @@ public class EnemyMovement : MonoBehaviour
         transform.localScale = originalScale;
         if (facingRight) moveInput = 1f;
         else moveInput = -1f;
-        isCoroutineRunning = false;
+        isLooking = false;
     }
 
-    public void Attack()
+    public void InstantAttack()
     {
-        if(!isCoroutineRunning)
-        StartCoroutine(DelayedAttack());
+        if (!isAttacking)
+            StartCoroutine(DelayedAttack());
     }
 
     IEnumerator DelayedAttack()
     {
-        isCoroutineRunning = true;
+        isAttacking = true;
         float temp = moveInput;
         moveInput = 0f;
         myRigidbody.velocity = Vector3.zero;
         myAnimator.SetTrigger("Attack");
         yield return new WaitForSeconds(attackDuration);
         moveInput = temp;
-        isCoroutineRunning = false;
+        isAttacking = false;
     }
 }

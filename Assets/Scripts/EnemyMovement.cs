@@ -18,10 +18,14 @@ public class EnemyMovement : MonoBehaviour
     private bool isLooking = false;
     private bool isAttacking = false;
 
+    public enum Difficulty {Easy, Normal, Hard, Challenging};
+    public Difficulty difficulty = Difficulty.Easy;
+
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
+        myAnimator.SetInteger("Difficulty", (int)difficulty);
     }
 
     private void Update()

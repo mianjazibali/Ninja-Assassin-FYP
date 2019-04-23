@@ -25,12 +25,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = currentHealth - damage;
         if (currentHealth <= 0)
         {
-            MakeDead();
+            GetComponent<EnemyMovement>().DelayedDeath();
         }
     }
 
-    void MakeDead()
-    {
-        gameObject.SetActive(false);
-    }
 }

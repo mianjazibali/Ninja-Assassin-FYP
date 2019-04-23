@@ -7335,6 +7335,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375558106}
   m_CullTransparentMesh: 0
+--- !u!4 &1385090988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4535379901478465892, guid: 9bda6b21a9171b7498e3621f971c827b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8079722079518573618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1415356984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4535379901478465894, guid: 9bda6b21a9171b7498e3621f971c827b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8079722079518573618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1418043441
 GameObject:
   m_ObjectHideFlags: 0
@@ -10167,5 +10179,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4535379901478759748, guid: 9bda6b21a9171b7498e3621f971c827b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079722079515458507, guid: 9bda6b21a9171b7498e3621f971c827b,
+        type: 3}
+      propertyPath: objectToFade.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079722079515458507, guid: 9bda6b21a9171b7498e3621f971c827b,
+        type: 3}
+      propertyPath: objectToFade.Array.data[0]
+      value: 
+      objectReference: {fileID: 1385090988}
+    - target: {fileID: 8079722079515458507, guid: 9bda6b21a9171b7498e3621f971c827b,
+        type: 3}
+      propertyPath: objectToFade.Array.data[1]
+      value: 
+      objectReference: {fileID: 1415356984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bda6b21a9171b7498e3621f971c827b, type: 3}

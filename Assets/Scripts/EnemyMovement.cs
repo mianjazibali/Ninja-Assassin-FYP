@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public float stayDuration = 3f;
     public float attackDuration = 3f;
+    public float deathDuration = 5f;
+    public List<Transform> objectToFade;
 
     private Rigidbody myRigidbody;
     private Animator myAnimator;
@@ -95,5 +97,41 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         moveInput = temp;
         isAttacking = false;
+    }
+
+    public void DelayedDeath()
+    {
+        StopAllCoroutines();
+        isAttacking = true;
+        isLooking = true;
+        moveInput = 0f;
+        myRigidbody.velocity = Vector3.zero;
+        myAnimator.SetTrigger("Death");
+    }
+
+    public void FadeOut()
+    {
+        foreach (Transform t in objectToFade)
+        {
+            foreach (Material m in t.GetComponent<Renderer>().materials)
+            {
+                m.SetFloat("_Mode", 2);
+                m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                m.SetInt("_ZWrite", 0);
+                m.DisableKeyword("_ALPHATEST_ON");
+                m.EnableKeyword("_ALPHABLEND_ON");
+                m.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                m.renderQueue = 3000;
+            }
+        }
+        iTween.FadeTo(gameObject, 0f, 2f);
+        StartCoroutine(DestroyAfterFadeOut());
+    }
+
+    IEnumerator DestroyAfterFadeOut()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(transform.parent.gameObject);
     }
 }

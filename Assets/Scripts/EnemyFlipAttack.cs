@@ -9,7 +9,6 @@ public class EnemyFlipAttack : MonoBehaviour
     public bool flipOnHit = false;
 
     EnemyMovement enemyMovement;
-    bool isEntered = false;
 
     // Start is called before the first frame update
     void Start()

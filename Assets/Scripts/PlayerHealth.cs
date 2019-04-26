@@ -47,19 +47,23 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void Reset()
+    {
+        StopAllCoroutines();
+        isShieldActive = false;
+        isBurning = false;
+        shieldFX.SetActive(false);
+    }
+
     public void Respawn()
     {
         if(currentLives > 0)
         {
+            Reset();
             currentLives--;
             currentHealth = totalHealth;
+            transform.position = levelManager.lastCheckpointPosition;
         }
-        if (isShieldActive)
-        {
-            isShieldActive = false;
-            shieldFX.SetActive(isShieldActive);
-        }
-        transform.position = levelManager.lastCheckpointPosition;
     }
 
     public void IncrementCurrentLives()
@@ -87,7 +91,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Burn(float burnDuration)
     {
-        StartCoroutine(BurnIt(burnDuration));
+        if(!isBurning && !isShieldActive)
+            StartCoroutine(BurnIt(burnDuration));
     }
 
     private IEnumerator BurnIt(float burnDuration)

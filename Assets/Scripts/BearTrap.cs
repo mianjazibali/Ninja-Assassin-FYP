@@ -11,7 +11,7 @@ public class BearTrap : MonoBehaviour
     float nextDamage;
 
     PlayerHealth playerHealth;
-    Movement playerMovement;
+    PlayerMovement playerMovement;
     bool isTrapped = false;
 
     void Start()
@@ -19,7 +19,7 @@ public class BearTrap : MonoBehaviour
         nextDamage = Time.time;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
-        playerMovement = player.GetComponent<Movement>();
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     private void Update()

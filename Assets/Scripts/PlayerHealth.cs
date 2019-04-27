@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     //Burn Variables
     public bool isBurning = false;
+    public bool isDying = false;
 
     //Shield Variables
     public GameObject shieldFX;
@@ -92,10 +93,10 @@ public class PlayerHealth : MonoBehaviour
     public void Burn(float burnDuration)
     {
         if(!isBurning && !isShieldActive)
-            StartCoroutine(BurnIt(burnDuration));
+            StartCoroutine(BurnCoroutine(burnDuration));
     }
 
-    private IEnumerator BurnIt(float burnDuration)
+    private IEnumerator BurnCoroutine(float burnDuration)
     {
         //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
         //fx.transform.SetParent(player.transform, false);
@@ -104,6 +105,26 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(burnDuration);
         isBurning = false;
         myAnimator.SetBool("isBurning", isBurning);
+        Respawn();
+    }
+
+    public void Death(float burnDuration)
+    {
+        if (!isDying && !isShieldActive)
+            StartCoroutine(DeathCoroutine(burnDuration));
+    }
+
+    private IEnumerator DeathCoroutine(float burnDuration)
+    {
+        //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
+        //fx.transform.SetParent(player.transform, false);
+        transform.GetChild(0).tag = "Untagged";
+        isDying = true;
+        myAnimator.SetBool("isDying", isDying);
+        yield return new WaitForSeconds(burnDuration);
+        isDying = false;
+        myAnimator.SetBool("isDying", isDying);
+        transform.GetChild(0).tag = "Player";
         Respawn();
     }
 }

@@ -14,6 +14,12 @@ public class EnemyMovement : MonoBehaviour
     public bool canSee = false;
     public float sightOffset = 10f;
 
+    //Shuriken Variables 
+    public GameObject shurikenPrefab;
+    public Transform shurikenPosition;
+    [SerializeField]
+    private float throwSpeed = 1000f;
+
     private Rigidbody myRigidbody;
     private Animator myAnimator;
 
@@ -159,5 +165,29 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(transform.parent.gameObject);
+    }
+
+    public void ThrowShuriken()
+    {
+        float tempThrowSpeed = throwSpeed;
+        if (facingRight)
+        {
+            shurikenPrefab.transform.localScale = new Vector3(10, 10, 10);
+        }
+        else
+        {
+            shurikenPrefab.transform.localScale = new Vector3(-10, 10, 10);
+        }
+        GameObject clone = Instantiate(shurikenPrefab, shurikenPosition.position, shurikenPrefab.transform.rotation);
+        if (Mathf.Abs(myRigidbody.velocity.x) > 0) tempThrowSpeed = throwSpeed * 1.5f;
+        if (facingRight)
+        {
+
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.right * tempThrowSpeed);
+        }
+        else
+        {
+            clone.GetComponent<Rigidbody>().AddForce(Vector3.left * tempThrowSpeed);
+        }
     }
 }

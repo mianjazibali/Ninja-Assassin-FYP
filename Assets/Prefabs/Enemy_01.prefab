@@ -244,6 +244,11 @@ MonoBehaviour:
   objectToFade:
   - {fileID: 4535379901478465892}
   - {fileID: 4535379901478465894}
+  canSee: 0
+  sightOffset: 10
+  shurikenPrefab: {fileID: 0}
+  shurikenPosition: {fileID: 0}
+  throwSpeed: 1000
   difficulty: 0
 --- !u!1 &8079722078540561411
 GameObject:

@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     public float attackDuration = 3f;
     public float deathDuration = 5f;
     public List<Transform> objectToFade;
+    public bool canSee = false;
+    public float sightOffset = 10f;
 
     private Rigidbody myRigidbody;
     private Animator myAnimator;
@@ -32,6 +34,30 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (canSee)
+        {
+            RaycastHit hit;
+            Vector3 sightDirection;
+            float sightDistance;
+            if (facingRight)
+            {
+                sightDirection = Vector3.right;
+                sightDistance = (pointB.position.x - transform.position.x) + sightOffset;
+            }
+            else
+            {
+                sightDirection = Vector3.left;
+                sightDistance = (transform.position.x - pointA.position.x) + sightOffset;
+            }
+            if(Physics.Raycast(transform.position, sightDirection, out hit, sightDistance))
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    InstantAttack();
+                }
+            }
+        }
+
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
         if (transform.localPosition.x >= pointB.localPosition.x && facingRight && !isLooking)
         {

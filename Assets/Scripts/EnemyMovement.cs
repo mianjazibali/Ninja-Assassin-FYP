@@ -116,7 +116,10 @@ public class EnemyMovement : MonoBehaviour
     public void InstantAttack()
     {
         if (!isAttacking)
+        {
+            StopAllCoroutines();
             StartCoroutine(DelayedAttack());
+        }    
     }
 
     IEnumerator DelayedAttack()
@@ -127,8 +130,22 @@ public class EnemyMovement : MonoBehaviour
         myRigidbody.velocity = Vector3.zero;
         myAnimator.SetTrigger("Attack");
         yield return new WaitForSeconds(attackDuration);
-        moveInput = temp;
         isAttacking = false;
+        isLooking = false;
+        if (temp == 0 && facingRight)
+        {
+            moveInput = 1f;
+        }
+        else
+        if(temp == 0 && !facingRight)
+        {
+            moveInput = -1f;
+        }
+        else
+        {
+            moveInput = temp;
+        }
+        
     }
 
     public void DelayedDeath()

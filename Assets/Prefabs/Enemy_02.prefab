@@ -1909,14 +1909,15 @@ MonoBehaviour:
   attackDuration: 1.7
   deathDuration: 5
   objectToFade:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6783047799651717683}
+  - {fileID: 6783047799651718067}
+  - {fileID: 6433932048227273536}
   canSee: 1
   sightOffset: 10
   shurikenPrefab: {fileID: 534750869488099283, guid: 3d04530371fca7543901201450c653f3,
     type: 3}
   shurikenPosition: {fileID: 5872481661245833281}
-  throwSpeed: 10
+  throwSpeed: 2000
   difficulty: 1
 --- !u!114 &6783047799651584191
 MonoBehaviour:

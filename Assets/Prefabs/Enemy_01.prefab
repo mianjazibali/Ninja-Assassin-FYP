@@ -237,7 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 8079722078876724657}
   pointB: {fileID: 8079722078540561408}
-  moveSpeed: 6
+  walkSpeed: 6
+  runSpeed: 6
   stayDuration: 3.4
   attackDuration: 1.7
   deathDuration: 5

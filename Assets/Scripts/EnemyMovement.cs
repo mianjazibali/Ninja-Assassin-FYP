@@ -6,7 +6,9 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform pointA;
     public Transform pointB;
-    public float moveSpeed = 10f;
+    public float walkSpeed = 10f;
+    public float runSpeed = 10f;
+    private float moveSpeed;
     public float stayDuration = 3f;
     public float attackDuration = 3f;
     public float deathDuration = 5f;
@@ -36,6 +38,7 @@ public class EnemyMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
         myAnimator.SetInteger("Difficulty", (int)difficulty);
+        moveSpeed = walkSpeed;
     }
 
     private void Update()
@@ -59,8 +62,28 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Player"))
                 {
-                    InstantAttack();
+                    if (difficulty == Difficulty.Normal)
+                    {
+                        moveSpeed = runSpeed;
+                    }
+                    else
+                    if (difficulty == Difficulty.Hard)
+                    {
+                        InstantAttack();
+                    }
                 }
+                else
+                {
+                    if (difficulty == Difficulty.Normal)
+                    {
+                        moveSpeed = walkSpeed;
+                    }
+                }
+            }
+            else
+            {
+                if(difficulty == Difficulty.Normal)
+                    moveSpeed = walkSpeed;
             }
         }
 

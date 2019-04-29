@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2648738278848009922}
   - component: {fileID: 8488648068963475393}
   - component: {fileID: 2177041068790713865}
+  - component: {fileID: 8202596871145489778}
   m_Layer: 0
-  m_Name: Enemy_02_Arrow
+  m_Name: Enemy_03_Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +124,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8202596871145489778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534750869488099283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7d7f24e0caa7642809532f7aaea863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aliveTime: 1
 --- !u!1 &6984629558546671788
 GameObject:
   m_ObjectHideFlags: 0

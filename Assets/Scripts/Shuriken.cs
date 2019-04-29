@@ -26,5 +26,10 @@ public class Shuriken : MonoBehaviour
             other.GetComponent<EnemyHealth>().AddDamage(damagePower);
             Destroy(gameObject);
         }
+        else
+        if(other.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shuriken : MonoBehaviour
 {
+    public GameObject hitFX;
     public GameObject bloodSplashFX;
     public float damagePower = 10f;
 
@@ -29,6 +30,7 @@ public class Shuriken : MonoBehaviour
         else
         if(other.tag == "Shield")
         {
+            Instantiate(hitFX, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

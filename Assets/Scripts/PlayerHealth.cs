@@ -111,19 +111,23 @@ public class PlayerHealth : MonoBehaviour
     public void Death(float burnDuration)
     {
         if (!isDying && !isShieldActive)
+        {
+            transform.tag = "Untagged";
+            transform.GetChild(0).tag = "Untagged";
             StartCoroutine(DeathCoroutine(burnDuration));
+        }   
     }
 
     private IEnumerator DeathCoroutine(float burnDuration)
     {
         //GameObject fx = Instantiate(playerFireFX, playerFireTransform.position, playerFireTransform.rotation);
         //fx.transform.SetParent(player.transform, false);
-        transform.GetChild(0).tag = "Untagged";
         isDying = true;
         myAnimator.SetBool("isDying", isDying);
         yield return new WaitForSeconds(burnDuration);
         isDying = false;
         myAnimator.SetBool("isDying", isDying);
+        transform.tag = "Player";
         transform.GetChild(0).tag = "Player";
         Respawn();
     }

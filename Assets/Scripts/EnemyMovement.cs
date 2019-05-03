@@ -62,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Player"))
                 {
+                    Debug.Log("PlayerInRange" + hit.transform.name);
                     if (difficulty == Difficulty.Normal)
                     {
                         moveSpeed = runSpeed;
@@ -86,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
                     moveSpeed = walkSpeed;
             }
         }
-
+        myAnimator.SetBool("isAttacking", isAttacking);
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
         if (transform.localPosition.x >= pointB.localPosition.x && facingRight && !isLooking)
         {
@@ -107,6 +108,10 @@ public class EnemyMovement : MonoBehaviour
             myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            DelayedDeath();
+        }
     }
 
     IEnumerator DelayedFlip()
@@ -133,6 +138,7 @@ public class EnemyMovement : MonoBehaviour
         transform.localScale = originalScale;
         if (facingRight) moveInput = 1f;
         else moveInput = -1f;
+        isAttacking = false;
         isLooking = false;
     }
 
@@ -151,7 +157,6 @@ public class EnemyMovement : MonoBehaviour
         float temp = moveInput;
         moveInput = 0f;
         myRigidbody.velocity = Vector3.zero;
-        myAnimator.SetTrigger("Attack");
         yield return new WaitForSeconds(attackDuration);
         isAttacking = false;
         isLooking = false;
@@ -168,7 +173,6 @@ public class EnemyMovement : MonoBehaviour
         {
             moveInput = temp;
         }
-        
     }
 
     public void DelayedDeath()

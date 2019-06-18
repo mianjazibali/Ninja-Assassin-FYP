@@ -1,20 +1,15 @@
 fileFormatVersion: 2
-guid: 1dcddb3cd5465bf41a33fd333c504fa1
-timeCreated: 1496723223
+guid: 2f8aa405a174ce44c8bd91bfd8a6d669
+timeCreated: 1506042879
 licenseType: Store
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: SM_Prop_Fountain_Water_01
     400000: //RootNode
-    400002: SM_Prop_Fountain_Water_01
     2300000: //RootNode
-    2300002: SM_Prop_Fountain_Water_01
     3300000: //RootNode
-    3300002: SM_Prop_Fountain_Water_01
-    4300000: SM_Prop_Fountain_01
-    4300002: SM_Prop_Fountain_Water_01
+    4300000: SM_Env_Stone_Vessel_01
     9500000: //RootNode
   materials:
     importMaterials: 0

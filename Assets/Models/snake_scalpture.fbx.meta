@@ -1,21 +1,15 @@
 fileFormatVersion: 2
-guid: ba5841de5462711439864533bd00d6dc
+guid: 0b5f7d49133c6e443be6229bcf536596
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Broken_Bridge_0
-    100004: Broken_Bridge_1
     400000: //RootNode
-    400002: Broken_Bridge_0
-    400004: Broken_Bridge_1
-    2100000: lambert2
-    2300000: Broken_Bridge_0
-    2300002: Broken_Bridge_1
-    3300000: Broken_Bridge_0
-    3300002: Broken_Bridge_1
-    4300000: Broken_Bridge_0
-    4300002: Broken_Bridge_1
+    2100000: lambert524
+    2100002: blinn1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: snake_sculpture
   externalObjects: {}
   materials:
     importMaterials: 1

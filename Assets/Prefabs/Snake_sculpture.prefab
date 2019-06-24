@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2033681158168459853}
   - component: {fileID: 2750236812485621305}
   - component: {fileID: 1455798440099156846}
+  - component: {fileID: 1570742379419472100}
   m_Layer: 0
-  m_Name: snake_scalpture
+  m_Name: Snake_sculpture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6633274604334472104}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 37.08, y: 4.67, z: 0}
-  m_LocalScale: {x: 1000, y: 1000, z: 1000}
+  m_LocalScale: {x: 1500, y: 1500, z: 1500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1570742379419472100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633274604334472104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00054483686, y: 0.0007309499, z: 0.0012410223}
+  m_Center: {x: -0.000000054785943, y: -0.00006671186, z: 0.00065336}

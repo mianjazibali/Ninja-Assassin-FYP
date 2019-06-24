@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     public float deathDuration = 5f;
     public List<Transform> objectToFade;
     public bool canSee = false;
+    public Transform seePointA;
+    public Transform seePointB;
     public float sightOffset = 10f;
 
     //Shuriken Variables 
@@ -30,6 +32,10 @@ public class EnemyMovement : MonoBehaviour
     private bool isLooking = false;
     private bool isAttacking = false;
 
+    //Temporary point to store patrolling points
+    private Transform tempPointA;
+    private Transform tempPointB;
+
     public enum Difficulty {Easy, Normal, Hard, Challenging};
     public Difficulty difficulty = Difficulty.Easy;
 
@@ -39,6 +45,8 @@ public class EnemyMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myAnimator.SetInteger("Difficulty", (int)difficulty);
         moveSpeed = walkSpeed;
+        tempPointA = pointA;
+        tempPointB = pointB;
     }
 
     private void Update()
@@ -63,9 +71,17 @@ public class EnemyMovement : MonoBehaviour
                 if (hit.transform.CompareTag("Player"))
                 {
                     Debug.Log("PlayerInRange" + hit.transform.name);
-                    if (difficulty == Difficulty.Normal)
+                    if (difficulty == Difficulty.Normal || difficulty == Difficulty.Easy)
                     {
                         moveSpeed = runSpeed;
+                        if (facingRight)
+                        {
+                            pointB = seePointB;
+                        }
+                        else
+                        {
+                            pointA = seePointA;
+                        }
                     }
                     else
                     if (difficulty == Difficulty.Hard)
@@ -75,7 +91,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (difficulty == Difficulty.Normal)
+                    if (difficulty == Difficulty.Normal || difficulty == Difficulty.Easy)
                     {
                         moveSpeed = walkSpeed;
                     }
@@ -83,8 +99,10 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                if(difficulty == Difficulty.Normal)
+                if (difficulty == Difficulty.Normal || difficulty == Difficulty.Easy)
+                {
                     moveSpeed = walkSpeed;
+                }
             }
         }
         myAnimator.SetBool("isAttacking", isAttacking);
@@ -127,6 +145,14 @@ public class EnemyMovement : MonoBehaviour
         transform.localScale = originalScale;
         moveInput = temp * -1f;
         isLooking = false;
+        if (facingRight)
+        {
+            pointB = tempPointB;
+        }
+        else
+        {
+            pointA = tempPointA;
+        }
     }
 
     public void InstantFlip()

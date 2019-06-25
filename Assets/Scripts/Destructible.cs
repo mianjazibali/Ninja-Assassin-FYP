@@ -34,10 +34,17 @@ public class Destructible : MonoBehaviour
 
     public void Destroy()
     {
-        Vector3 direction = (player.transform.position - transform.position).normalized; 
-        Instantiate(destroyedVersion, transform.position, transform.rotation);
-        GameObject obj = Instantiate(reward, new Vector3(transform.position.x, transform.position.y, rewardTransform.position.z), rewardTransform.rotation);
-        obj.GetComponent<Rigidbody>().AddForce(direction * -rewardForce, ForceMode.Impulse);
+        if (destroyedVersion)
+        {
+            Instantiate(destroyedVersion, transform.position, transform.rotation);
+        }
+           
+        if (reward)
+        {
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            GameObject obj = Instantiate(reward, new Vector3(transform.position.x, transform.position.y, rewardTransform.position.z), rewardTransform.rotation);
+            obj.GetComponent<Rigidbody>().AddForce(direction * -rewardForce, ForceMode.Impulse);
+        }  
         Destroy(gameObject);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickupLife : MonoBehaviour
 {
     private GameObject player;
-    private LevelManager levelManager;
     private PlayerHealth playerHealth;
 
     public GameObject lifePickupFX;
@@ -14,7 +13,6 @@ public class PickupLife : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         pickupTransform = lifePickupFX.transform;
     }

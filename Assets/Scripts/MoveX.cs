@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class MoveX : MonoBehaviour
 {
     public float positionX;
     public float animationTime;

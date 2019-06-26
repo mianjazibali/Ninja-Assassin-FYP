@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class PickupScroll : MonoBehaviour
 {
+    private GameObject player;
     private LevelManager levelManager;
-    private PlayerHealth playerHealth;
 
     public GameObject scrollPickupFX;
+    private Transform pickupTransform;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        pickupTransform = scrollPickupFX.transform;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
-            Instantiate(scrollPickupFX, transform.position, scrollPickupFX.transform.rotation);
+            GameObject fx = Instantiate(scrollPickupFX, pickupTransform.position, pickupTransform.rotation);
+            fx.transform.SetParent(player.transform, false);
             levelManager.IncrementScroll();
             Destroy(gameObject);
         }

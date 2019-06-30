@@ -20,7 +20,8 @@ public class Destructible : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         objectCurrentHealth = objectFullHealth;
-        rewardTransform = reward.transform;
+        if(reward)
+            rewardTransform = reward.transform;
     }
 
     public void AddDamage(float damage)

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 847406391}
-  - component: {fileID: 847406390}
+  - component: {fileID: 5447179402069272840}
   - component: {fileID: 1250084954}
   m_Layer: 0
   m_Name: ScreenFader
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &847406390
+--- !u!114 &5447179402069272840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,17 +41,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 847406389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9c526fe88044c4584236a3951c2c71, type: 3}
+  m_Script: {fileID: 11500000, guid: 393cead27c679f641a01676269c4c642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
   defaultState: 1
   fadeInDelay: 0
   fadeOutDelay: 0
   GUIdepth: -2
-  columns: 10
-  direction: 3
-  texture: {fileID: 0}
+  image: {fileID: 2800000, guid: c1423c62e8f9b0b49af59eb26619ba13, type: 3}
+  maxDensity: 1
 --- !u!114 &1250084954
 MonoBehaviour:
   m_ObjectHideFlags: 0

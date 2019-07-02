@@ -17023,8 +17023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastCheckpointPosition: {x: 0, y: 0, z: 0}
-  scrollCount: 0
-  coinCount: 0
+  coinsText: {fileID: 513678274}
+  scrollText: {fileID: 1154660179}
 --- !u!4 &1592733376
 Transform:
   m_ObjectHideFlags: 0

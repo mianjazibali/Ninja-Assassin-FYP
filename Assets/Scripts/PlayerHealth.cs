@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     //Shield Variables
     public GameObject shieldFX;
     public bool isShieldActive = false;
+    public GameObject loseMenuUI;
 
     private void Start()
     {
@@ -58,12 +59,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
-        if(currentLives > 0)
+        if(currentLives > 1)
         {
             Reset();
             currentLives--;
             currentHealth = totalHealth;
             transform.position = levelManager.lastCheckpointPosition;
+        }
+        else
+        {
+            loseMenuUI.SetActive(true);
         }
     }
 

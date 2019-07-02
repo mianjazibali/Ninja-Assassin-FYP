@@ -52,6 +52,11 @@ public class PlayGame : MonoBehaviour
         Fader.Instance.FadeIn().LoadLevel(SceneManager.GetActiveScene().buildIndex).FadeOut();
     }
 
+    public void Next()
+    {
+        Fader.Instance.FadeIn().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1).FadeOut();
+    }
+
     public void PlayLevel(int level)
     {
         string path = SceneUtility.GetScenePathByBuildIndex(level + 6);

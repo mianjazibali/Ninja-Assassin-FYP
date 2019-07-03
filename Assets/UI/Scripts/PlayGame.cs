@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
@@ -57,12 +55,30 @@ public class PlayGame : MonoBehaviour
         Fader.Instance.FadeIn().LoadLevel(SceneManager.GetActiveScene().buildIndex + 1).FadeOut();
     }
 
+    public void LevelSelect()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex - 6;
+        if (currentLevel <= 9)
+        {
+            Scene_01();
+        }
+        else
+        if (currentLevel <= 18)
+        {
+            Scene_02();
+        }
+        else
+        if (currentLevel <= 27)
+        {
+            Scene_03();
+        }
+    }
+
     public void PlayLevel(int level)
     {
         string path = SceneUtility.GetScenePathByBuildIndex(level + 6);
         string sceneName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
-        bl_SceneLoaderUtils.GetLoader.LoadLevel(sceneName);
-        //Fader.Instance.FadeIn().LoadLevel(level + 6).FadeOut();
+        Fader.Instance.FadeIn().LoadLevel(level + 6).FadeOut();
     }
 
     public void ResetGame()

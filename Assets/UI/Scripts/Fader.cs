@@ -465,38 +465,6 @@ public class Fader : MonoBehaviour, IFader
         FaderFactoryBase factory = new ImageFaderFactory(texture);
         CreateFaderInstance(factory);
     }
-    public static void SetupAsStripesFader(int stripes)
-    {
-        SetupAsStripesFader(stripes, StripeScreenFader.Direction.HORIZONTAL_IN);
-    }
-    public static void SetupAsStripesFader(int stripes, StripeScreenFader.Direction direction)
-    {
-        FaderFactoryBase factory = new StripesFaderFactory(stripes, direction);
-        CreateFaderInstance(factory);
-    }
-    public static void SetupAsSquaredFader(int columns)
-    {
-        SetupAsSquaredFader(columns, SquaredScreenFader.Direction.DIAGONAL_RIGHT_UP);
-    }
-    public static void SetupAsSquaredFader(int columns, SquaredScreenFader.Direction direction)
-    {
-        FaderFactoryBase factory = new SquaredFaderFactory(columns, direction);
-        CreateFaderInstance(factory);
-    }
-    public static void SetupAsLinesFader(int stripes)
-    {
-        SetupAsLinesFader(stripes, LinesScreenFader.Direction.IN_FROM_RIGHT);
-    }
-    public static void SetupAsLinesFader(int stripes, LinesScreenFader.Direction direction)
-    {
-        FaderFactoryBase factory = new LinesFaderFactory(stripes, direction);
-        instance = factory.CreateFader(instance != null ? instance.gameObject : null);
-    }
-    public static void SetupAsLinesFader(LinesScreenFader.Direction direction, params Texture[] images)
-    {
-        FaderFactoryBase factory = new LinesFaderFactory(images.Length, direction, images);
-        instance = factory.CreateFader(instance != null ? instance.gameObject : null);
-    }
     public static void SetupAsDefaultFader()
     {
         FaderFactoryBase factory = new DefaultFaderFactory();
@@ -719,90 +687,6 @@ namespace ScreenFaderComponents
         public override Fader CreateFader(GameObject go)
         {
             DefaultScreenFader fader = base.GetFader<DefaultScreenFader>(go);
-            return fader;
-        }
-    }
-    public class LinesFaderFactory : FaderFactoryBase
-    {
-        private int stripes;
-        private LinesScreenFader.Direction direction;
-        private Texture[] images;
-
-        public LinesFaderFactory(int stripes, LinesScreenFader.Direction direction)
-        {
-            this.stripes = stripes;
-            this.direction = direction;
-        }
-
-        public LinesFaderFactory(int stripes, LinesScreenFader.Direction direction, Texture[] images)
-        {
-            this.stripes = stripes;
-            this.direction = direction;
-            this.images = images;
-        }
-
-        public override Fader CreateFader(GameObject go)
-        {
-            LinesScreenFader fader = base.GetFader<LinesScreenFader>(go);
-
-            fader.direction = direction;
-            fader.numberOfStripes = stripes;
-
-            if (images != null && images.Length > 0)
-                fader.AddTextures(images);
-
-            return fader;
-        }
-    }
-    public class StripesFaderFactory : FaderFactoryBase
-    {
-        private int stripes;
-        private StripeScreenFader.Direction direction;
-
-        public StripesFaderFactory(int stripes, StripeScreenFader.Direction direction)
-        {
-            this.stripes = stripes;
-            this.direction = direction;
-        }
-
-        public override Fader CreateFader(GameObject go)
-        {
-            StripeScreenFader fader = base.GetFader<StripeScreenFader>(go);
-
-            fader.direction = direction;
-            fader.numberOfStripes = stripes;
-
-            return fader;
-        }
-    }
-    public class SquaredFaderFactory : FaderFactoryBase
-    {
-        int columns;
-        SquaredScreenFader.Direction direction;
-        Texture texture;
-
-        public SquaredFaderFactory(int columns, SquaredScreenFader.Direction direction)
-            : this(columns, direction, null)
-        {
-            ;
-        }
-        public SquaredFaderFactory(int columns, SquaredScreenFader.Direction direction, Texture texture)
-        {
-            this.columns = columns;
-            this.direction = direction;
-            this.texture = texture;
-        }
-
-        public override Fader CreateFader(GameObject go)
-        {
-            SquaredScreenFader fader = base.GetFader<SquaredScreenFader>(go);
-
-            fader.columns = columns;
-            fader.direction = direction;
-
-            if (texture != null)
-                fader.texture = texture;
-
             return fader;
         }
     }
@@ -1164,27 +1048,6 @@ public class FaderFactory
         if (go == null)
             go = new GameObject("ScreenFader");
         DefaultScreenFader fader = go.AddComponent<DefaultScreenFader>();
-
-        return fader;
-    }
-
-    public static Fader CreateSquaredFader(GameObject go, int squares)
-    {
-        if (go == null)
-            go = new GameObject("ScreenFader");
-        SquaredScreenFader fader = go.AddComponent<SquaredScreenFader>();
-        fader.direction = SquaredScreenFader.Direction.DIAGONAL_LEFT_UP;
-        fader.columns = squares;
-
-        return fader;
-    }
-
-    public static Fader CreateStripesFader(GameObject go, int stripes)
-    {
-        if (go == null)
-            go = new GameObject("ScreenFader");
-        StripeScreenFader fader = go.AddComponent<StripeScreenFader>();
-        fader.numberOfStripes = stripes;
 
         return fader;
     }

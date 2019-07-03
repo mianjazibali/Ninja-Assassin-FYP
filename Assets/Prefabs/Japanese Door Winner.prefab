@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1186523, y: 16.543377, z: 4.4793196}
-  m_Center: {x: -4.21, y: 2.2647018, z: -0.94708014}
+  m_Size: {x: 0.5736965, y: 1.661333, z: 0.08946474}
+  m_Center: {x: -0.037885394, y: 0.94876224, z: 0.6050839}
 --- !u!114 &8958692323566079460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winMenuUI: {fileID: 0}
+  levelManager: {fileID: 0}
 --- !u!1 &927399492
 GameObject:
   m_ObjectHideFlags: 0

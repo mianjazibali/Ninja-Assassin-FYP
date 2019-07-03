@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //Running Variables
     bool movementAllowed;
     public float runSpeed = 15f;
+    public float autoMovingSpeed = 10f;
     bool facingRight;
 
     //Wall Check Variables
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Sword Variables
     private bool isAttacking;
+    private bool startMoving;
 
     void Start()
     {
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         jumped = false;
         canDoubleJump = true;
         isAttacking = false;
+        startMoving = false;
     }
 
     private void Awake()
@@ -100,6 +103,11 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
         }
 
+        if (startMoving)
+        {
+            myRigidbody.velocity = new Vector3(GetPlayerFacing() * autoMovingSpeed, myRigidbody.velocity.y, 0);
+        }
+
         if (movementAllowed)
         {
             float move = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -130,6 +138,16 @@ public class PlayerMovement : MonoBehaviour
         {
             //myAnimator.SetTrigger("Shuriken");
         }
+    }
+
+    public void StartMoving()
+    {
+        startMoving = true;
+    }
+
+    public void StopMoving()
+    {
+        startMoving = false;
     }
 
     public void AllowMovement()

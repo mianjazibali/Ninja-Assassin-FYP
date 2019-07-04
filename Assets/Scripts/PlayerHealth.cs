@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     //Reference Variables
     private LevelManager levelManager;
     private Animator myAnimator;
+    private PlayerMovement playerMovement;
 
     //Burn Variables
     public bool isBurning = false;
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = totalHealth;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         myAnimator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -64,6 +66,10 @@ public class PlayerHealth : MonoBehaviour
             Reset();
             currentLives--;
             currentHealth = totalHealth;
+            if (playerMovement.GetPlayerFacing() == -1f)
+            {
+                playerMovement.FlipPlayer();
+            }
             transform.position = levelManager.lastCheckpointPosition;
         }
         else

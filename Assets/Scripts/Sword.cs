@@ -12,5 +12,10 @@ public class Sword : MonoBehaviour
         {
             other.GetComponent<Destructible>().AddDamage(damagePower);
         }
+        else
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyHealth>().AddDamage(damagePower);
+        }
     }
 }

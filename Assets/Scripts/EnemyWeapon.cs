@@ -6,11 +6,15 @@ public class EnemyWeapon : MonoBehaviour
 {
     public float deathDuration = 2.35f;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            other.transform.parent.GetComponent<PlayerHealth>().Death(deathDuration);
+            GameObject player = other.transform.parent.gameObject;
+            if (!player.GetComponent<PlayerMovement>().isDashing())
+            {
+                player.GetComponent<PlayerHealth>().Death(deathDuration);
+            }
         }
     }
 }

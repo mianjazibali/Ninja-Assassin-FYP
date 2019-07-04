@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
     private float moveInput = 1;
     private bool isLooking = false;
     private bool isAttacking = false;
+    private bool isDying = false;
 
     //Temporary point to store patrolling points
     private Transform tempPointA;
@@ -119,11 +121,11 @@ public class EnemyMovement : MonoBehaviour
 
         if (facingRight)
         {
-            myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
+            myRigidbody.velocity = new Vector3(Convert.ToInt32(!isDying) * moveInput * moveSpeed, myRigidbody.velocity.y, 0);
         }
         else
         {
-            myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
+            myRigidbody.velocity = new Vector3(Convert.ToInt32(!isDying) * moveInput * moveSpeed, myRigidbody.velocity.y, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -157,6 +159,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void InstantFlip()
     {
+        if (isDying) return;
         StopAllCoroutines();
         facingRight = !facingRight;
         Vector3 originalScale = transform.localScale;
@@ -204,6 +207,7 @@ public class EnemyMovement : MonoBehaviour
     public void DelayedDeath()
     {
         StopAllCoroutines();
+        isDying = true;
         isAttacking = true;
         isLooking = true;
         moveInput = 0f;

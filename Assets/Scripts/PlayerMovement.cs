@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float throwSpeed = 1000f;
 
     //Sword Variables
+    public GameObject swordOffset;
     private bool isAttacking;
     private bool startMoving;
     private bool swordDashing;
@@ -105,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
         }
 
+        swordOffset.SetActive(swordDashing);
         myAnimator.SetBool("swordDashing", swordDashing);
         if (startMoving)
         {
@@ -157,6 +159,11 @@ public class PlayerMovement : MonoBehaviour
         swordDashing = false;
     }
 
+    public bool isDashing()
+    {
+        return swordDashing;
+    }
+
     public void StartMoving()
     {
         startMoving = true;
@@ -189,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = false;
     }
 
-    void FlipPlayer()
+    public void FlipPlayer()
     {
         facingRight = !facingRight;
         Vector3 originalScale = transform.localScale;

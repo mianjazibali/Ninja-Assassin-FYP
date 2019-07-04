@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     //Sword Variables
     private bool isAttacking;
     private bool startMoving;
+    private bool swordDashing;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         canDoubleJump = true;
         isAttacking = false;
         startMoving = false;
+        swordDashing = false;
     }
 
     private void Awake()
@@ -103,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
         }
 
+        myAnimator.SetBool("swordDashing", swordDashing);
         if (startMoving)
         {
             myRigidbody.velocity = new Vector3(GetPlayerFacing() * autoMovingSpeed, myRigidbody.velocity.y, 0);
@@ -140,6 +143,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SwordDashing()
+    {
+        Attack();
+        BlockMovement();
+        swordDashing = true;
+    }
+
+    public void SwordNotDashing()
+    {
+        UnAttack();
+        AllowMovement();
+        swordDashing = false;
+    }
+
     public void StartMoving()
     {
         startMoving = true;
@@ -148,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
     public void StopMoving()
     {
         startMoving = false;
+        BlockMovement();
     }
 
     public void AllowMovement()

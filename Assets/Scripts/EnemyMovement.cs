@@ -70,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Player"))
                 {
-                    Debug.Log("PlayerInRange" + hit.transform.name);
+                    //Debug.Log("PlayerInRange" + hit.transform.name);
                     if (difficulty == Difficulty.Normal || difficulty == Difficulty.Easy)
                     {
                         moveSpeed = runSpeed;

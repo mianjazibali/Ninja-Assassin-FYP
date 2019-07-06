@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 playerMovement.FlipPlayer();
             }
+            playerMovement.SetCanMove(true);
             transform.position = levelManager.lastCheckpointPosition;
         }
         else

@@ -6,7 +6,7 @@ public class Music : MonoBehaviour
 {
     private AudioSource _audioSource;
     public static int isMusicOn = 0; //0 for On because 0 is default value
-    public float volume = 0.2f;
+    public float volume;
 
     private void Start()
     {
@@ -14,19 +14,6 @@ public class Music : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = volume;
     }
-
-    /*
-    void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-
-    }
-    */
 
     void Update()
     {

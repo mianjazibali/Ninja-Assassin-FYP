@@ -40,7 +40,7 @@ public class LevelSelector01 : MonoBehaviour
     public static void ResetProgress()
     {
         levelReached = 1;
-        PlayerPrefs.SetInt("levelReached", levelReached);
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
     }
 }

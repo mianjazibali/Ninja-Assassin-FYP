@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float DoubleJumpForce;
     [SerializeField]
+    private float JumpCoolDownTime;
+    private float NextJumpTime;
+    [SerializeField]
     private float GroundCheckDistance;
     private bool CanDoubleJump = true;
     private bool Jumped = false;
@@ -63,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             Move();
             if (CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space))
             {
-                if (Grounded)
+                if (Grounded && Time.time > NextJumpTime)
                 {
                     CanDoubleJump = true;
                     Jump(JumpForce);
@@ -89,15 +92,12 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 myRigidbody.velocity += Vector3.up * Physics.gravity.y * (JumpMultiplier - 1) * Time.deltaTime;
-                if (myRigidbody.velocity.y > 1)
+                if (myRigidbody.velocity.y > 0.2f)
                 {
                     Jumped = true;
                 }
             }
         }
-
-        if (IsGrounded()) Grounded = true;
-        else Grounded = false;
 
         myAnimator.SetBool("isGrounded", Grounded);
 
@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Jumped = false;
             myAnimator.SetBool("isGrounded", true);
+            NextJumpTime = Time.time + JumpCoolDownTime;
         }
 
         DashOffset.SetActive(Dashing);
@@ -161,6 +162,11 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.velocity = Vector3.up * jumpForce;
     }
 
+    public void SetGrounded(bool grounded)
+    {
+        Grounded = grounded;
+    }
+    /*
     bool IsGrounded()
     {
         float distanceToPoints = capsuleCollider.height / 2 - capsuleCollider.radius;
@@ -182,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
 
         return false;
     }
+    */
 
     public void SetGroundCheckDistance(float distance)
     {

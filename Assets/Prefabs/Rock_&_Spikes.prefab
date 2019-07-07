@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704617184}
-  - component: {fileID: 704617185}
+  - component: {fileID: 1442580106841921570}
   m_Layer: 9
   m_Name: Rock
   m_TagString: Wall
@@ -31,19 +31,19 @@ Transform:
   m_Father: {fileID: 961094287}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -22.985, y: 0.30800003, z: 1.233}
---- !u!65 &704617185
-BoxCollider:
+--- !u!135 &1442580106841921570
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704617183}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: afcf11be35e1785489691b21613e1efa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999998, y: 0.58452183, z: 0.83715236}
-  m_Center: {x: 0.0000046365767, y: 0.083368875, z: 0.039006982}
+  m_Radius: 0.39968115
+  m_Center: {x: 0.000054335604, y: -0.014695773, z: 0.036626052}
 --- !u!1 &1339715622
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 1339715624}
   - component: {fileID: 1339715623}
   m_Layer: 0
-  m_Name: Rock & Spikes
+  m_Name: Rock_&_Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,9 +10,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private float MoveSpeed;
-    private bool CanMove = true;
     [SerializeField]
-    private float WallCheckDistance;
+    private float IdleAirMoveSpeed;
+    [SerializeField]
+    private float RunAirMoveSpeed;
+    private bool CanMove = true;
     [SerializeField]
     private float JumpForce;
     [SerializeField]
@@ -20,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float JumpCoolDownTime;
     private float NextJumpTime;
-    [SerializeField]
-    private float GroundCheckDistance;
     private bool CanDoubleJump = true;
     private bool Jumped = false;
     private bool Grounded = false;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float FallMultiplier;
     [SerializeField]
     private float JumpMultiplier;
+    private float LastMoveSpeedGrounded;
 
     private bool MovementAllowed;
     private bool FacingRight;
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Grounded && Time.time > NextJumpTime)
                 {
+                    LastMoveSpeedGrounded = myRigidbody.velocity.x;
                     CanDoubleJump = true;
                     Jump(JumpForce);
                 }
@@ -84,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!Grounded)
         {
-            if (myRigidbody.velocity.y < 0)
+            if (myRigidbody.velocity.y < 0f)
             {
                 myRigidbody.velocity += Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
                 CanDoubleJump = false;
@@ -92,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 myRigidbody.velocity += Vector3.up * Physics.gravity.y * (JumpMultiplier - 1) * Time.deltaTime;
-                if (myRigidbody.velocity.y > 0.2f)
+                if (myRigidbody.velocity.y > 0f)
                 {
                     Jumped = true;
                 }
@@ -146,7 +148,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (CanMove)
         {
-            myRigidbody.velocity = new Vector3(horizontalMovement * MoveSpeed, myRigidbody.velocity.y, 0);
+            if (Grounded)
+            {
+                myRigidbody.velocity = new Vector3(horizontalMovement * MoveSpeed, myRigidbody.velocity.y, 0);
+            }
+            else
+            {
+                if(Mathf.Abs(LastMoveSpeedGrounded) < 5f)
+                {
+                    myRigidbody.velocity = new Vector3(horizontalMovement * IdleAirMoveSpeed, myRigidbody.velocity.y, 0);
+                }
+                else
+                {
+                    myRigidbody.velocity = new Vector3(horizontalMovement * RunAirMoveSpeed, myRigidbody.velocity.y, 0);
+                }
+            }
         }
         //Debug.Log(myRigidbody.velocity.x);
     }
@@ -165,39 +181,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetGrounded(bool grounded)
     {
         Grounded = grounded;
-    }
-    /*
-    bool IsGrounded()
-    {
-        float distanceToPoints = capsuleCollider.height / 2 - capsuleCollider.radius;
-
-        Vector3 point1 = transform.position + capsuleCollider.center + Vector3.up * distanceToPoints;
-        Vector3 point2 = transform.position + capsuleCollider.center + Vector3.down * distanceToPoints;
-
-        float radius = capsuleCollider.radius;
-
-        RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, radius, Vector3.down, GroundCheckDistance);
-
-        foreach (RaycastHit objectHit in hits)
-        {
-            if (objectHit.transform.tag == "Ground" || objectHit.transform.tag == "Destructible")
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-    */
-
-    public void SetGroundCheckDistance(float distance)
-    {
-        GroundCheckDistance = distance;
-    }
-
-    public float GetGroundCheckDistance()
-    {
-        return GroundCheckDistance;
     }
 
     public void SwordDashing()

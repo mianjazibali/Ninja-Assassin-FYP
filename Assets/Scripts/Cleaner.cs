@@ -13,6 +13,7 @@ public class Cleaner : MonoBehaviour
         if (other.tag == "Player")
         {
             GameObject player = other.transform.parent.gameObject;
+            player.GetComponent<PlayerMovement>().SetGrounded(true);
             player.SetActive(false);
             StartCoroutine(Respawn(player));
         }
@@ -22,7 +23,7 @@ public class Cleaner : MonoBehaviour
     {
         Instantiate(bloodSplashFX, player.transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
         yield return new WaitForSeconds(respawnDelayTime);
-        PlayerHealth playerHealth = player.gameObject.GetComponent<PlayerHealth>();
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         playerHealth.Respawn();
         player.SetActive(true);
     }

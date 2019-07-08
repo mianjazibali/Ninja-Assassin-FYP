@@ -48,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
     private bool Dash;
     private bool Dashing;
 
+    public GameObject shurikenCoolDown;
+    public GameObject swordCoolDown;
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -121,12 +124,14 @@ public class PlayerMovement : MonoBehaviour
         {
             IsAttacking = true;
             myAnimator.SetTrigger("Shuriken");
+            shurikenCoolDown.SetActive(true);
         }
         else
         if ((CrossPlatformInputManager.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.X)) && !IsAttacking)
         {
             IsAttacking = true;
             myAnimator.SetTrigger("Sword");
+            swordCoolDown.SetActive(true);
         }
     }
 

@@ -3639,7 +3639,7 @@ GameObject:
   - component: {fileID: 513678277}
   - component: {fileID: 513678276}
   m_Layer: 5
-  m_Name: Count
+  m_Name: CoinsCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6738,6 +6738,11 @@ PrefabInstance:
       propertyPath: loseMenuUI
       value: 
       objectReference: {fileID: 1410075839}
+    - target: {fileID: 5980495212500583984, guid: a31012d69328b86469016cb06408b228,
+        type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 1378457940}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31012d69328b86469016cb06408b228, type: 3}
 --- !u!1 &986370948
@@ -7526,7 +7531,7 @@ GameObject:
   - component: {fileID: 1154660182}
   - component: {fileID: 1154660181}
   m_Layer: 5
-  m_Name: Count
+  m_Name: ScrollsCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8873,7 +8878,7 @@ GameObject:
   - component: {fileID: 1378457943}
   - component: {fileID: 1378457942}
   m_Layer: 5
-  m_Name: Count
+  m_Name: LivesCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9552,7 +9557,7 @@ GameObject:
   - component: {fileID: 1506809594}
   - component: {fileID: 1506809593}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: ScrollIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9881,7 +9886,7 @@ GameObject:
   - component: {fileID: 1514991060}
   - component: {fileID: 1514991059}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: HeatIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10730,6 +10735,7 @@ MonoBehaviour:
   lastCheckpointPosition: {x: 0, y: 0, z: 0}
   coinsText: {fileID: 513678274}
   scrollText: {fileID: 1154660179}
+  livesText: {fileID: 0}
 --- !u!4 &1592733376
 Transform:
   m_ObjectHideFlags: 0

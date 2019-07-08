@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     //Health Variables
-    public int totalLives;
+    public int maxLives;
     public int currentLives;
-    public float totalHealth;
-    public float currentHealth;
 
     //Reference Variables
     private LevelManager levelManager;
@@ -24,13 +22,19 @@ public class PlayerHealth : MonoBehaviour
     public bool isShieldActive = false;
     public GameObject loseMenuUI;
 
+    public GameObject livesText;
+    private TMPro.TextMeshProUGUI livesTMPro;
+
     private void Start()
     {
-        currentLives = totalLives;
-        currentHealth = totalHealth;
+        currentLives = 3 + PlayerPrefs.GetInt("currentLives");
+        maxLives = currentLives + 2;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         myAnimator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        livesTMPro = livesText.GetComponent<TMPro.TextMeshProUGUI>();
+        livesTMPro.text = currentLives.ToString();
     }
 
     private void Update()
@@ -38,16 +42,6 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             Respawn();
-        }
-    }
-
-    public void AddDamage(float damage)
-    {
-        if (isShieldActive) return;
-        currentHealth = currentHealth - damage;
-        if (currentHealth <= 0)
-        {
-            //MakeDead();
         }
     }
 
@@ -65,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Reset();
             currentLives--;
-            currentHealth = totalHealth;
+            UpdateLivesText();
             if (playerMovement.GetPlayerFacing() == -1f)
             {
                 playerMovement.FlipPlayer();
@@ -81,7 +75,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void IncrementCurrentLives()
     {
-        currentLives++;
+        if(currentLives < maxLives)
+        {
+            currentLives++;
+            UpdateLivesText();
+        }
     }
 
     public void SetShield(bool status, float duration)
@@ -142,5 +140,10 @@ public class PlayerHealth : MonoBehaviour
         transform.tag = "Player";
         transform.GetChild(0).tag = "Player";
         Respawn();
+    }
+
+    public void UpdateLivesText()
+    {
+        livesTMPro.text = currentLives.ToString();
     }
 }

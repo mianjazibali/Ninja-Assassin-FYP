@@ -9,12 +9,14 @@ public class LevelManager : MonoBehaviour
 
     public GameObject coinsText;
     public GameObject scrollText;
+    public GameObject livesText;
 
     private int scrollCount;
     private int coinCount;
 
     private TMPro.TextMeshProUGUI coinsTMPro;
     private TMPro.TextMeshProUGUI scrollsTMPro;
+    
 
     private void Start()
     {

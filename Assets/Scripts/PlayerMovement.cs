@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
             NextJumpTime = Time.time + JumpCoolDownTime;
         }
 
-        DashOffset.SetActive(Dashing);
+        DashOffset.SetActive(Dash);
         myAnimator.SetBool("swordDashing", Dashing);
         if (Dash)
         {
@@ -174,6 +174,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetCanMove(bool canMove)
     {
+        if (canMove == false)
+            myRigidbody.velocity = new Vector3(0f, myRigidbody.velocity.y, 0f);
         CanMove = canMove;
     }
 

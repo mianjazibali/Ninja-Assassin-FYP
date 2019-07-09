@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Font_Soup_of_Justice_SDF
   m_EditorClassIdentifier: 
-  hashCode: 2041536662
+  hashCode: -1798889179
   material: {fileID: 21788820924633936}
   materialHashCode: 1980649309
   fontAssetType: 1

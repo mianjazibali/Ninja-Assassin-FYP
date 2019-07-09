@@ -371,7 +371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingBar: {fileID: 1881631794}
   currentAmount: 0
-  time: 1
+  weapon: 0
+  maxCooldownTime: 3
   animationTime: 1.65
 --- !u!114 &49417871
 MonoBehaviour:
@@ -1002,7 +1003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingBar: {fileID: 1792943189}
   currentAmount: 0
-  time: 5
+  weapon: 1
+  maxCooldownTime: 5
   animationTime: 1.16
 --- !u!114 &129229246
 MonoBehaviour:

@@ -137,8 +137,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        //float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
+        //float horizontalMovement = Input.GetAxisRaw("Horizontal");
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(horizontalMovement));
 
         if (horizontalMovement > 0 && !FacingRight)

@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PickupCoins : MonoBehaviour
 {
+    private GameObject player;
     private LevelManager levelManager;
-    private PlayerHealth playerHealth;
 
     [SerializeField]
     private int coinsCount = 0;
 
     public GameObject coinsPickupFX;
+    private Transform pickupTransform;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        pickupTransform = coinsPickupFX.transform;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +25,8 @@ public class PickupCoins : MonoBehaviour
         if (other.tag == "Player")
         {
             gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = false;
-            Instantiate(coinsPickupFX, transform.position, coinsPickupFX.transform.rotation);
+            GameObject fx = Instantiate(coinsPickupFX, pickupTransform.position, pickupTransform.rotation);
+            fx.transform.SetParent(player.transform, false);
             levelManager.SetCoins(coinsCount);
             Destroy(gameObject);
         }

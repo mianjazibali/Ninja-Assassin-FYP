@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031614372120719624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1610256026272310856}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsCount: 100
-  coinsPickupFX: {fileID: 5165777448487931631, guid: 7e7845f80639c9d4ebb6047224d0c142,
+  coinsPickupFX: {fileID: 1068898642629318868, guid: e6534e3d2235a444c801ff6d5094b2f5,
     type: 3}
 --- !u!54 &1517434077
 Rigidbody:

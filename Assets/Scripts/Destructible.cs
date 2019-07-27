@@ -39,7 +39,7 @@ public class Destructible : MonoBehaviour
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
         }
-           
+
         if (reward)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;

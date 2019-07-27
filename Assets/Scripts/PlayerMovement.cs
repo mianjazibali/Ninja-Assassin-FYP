@@ -51,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject shurikenCoolDown;
     public GameObject swordCoolDown;
 
+    public Transform dustFXPos;
+    public GameObject dustFX;
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Grounded && Time.time > NextJumpTime)
                 {
+                    Instantiate(dustFX, dustFXPos.position, dustFX.transform.rotation);
                     LastMoveSpeedGrounded = myRigidbody.velocity.x;
                     CanDoubleJump = true;
                     Jump(JumpForce);
@@ -137,8 +141,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
-        //float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        //float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(horizontalMovement));
 
         if (horizontalMovement > 0 && !FacingRight)

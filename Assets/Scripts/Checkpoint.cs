@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     
     public Material activeMaterial;
+    public GameObject activefx;
 
     private LevelManager levelManager;
     private Vector3 respawnPosition;
@@ -22,6 +23,7 @@ public class Checkpoint : MonoBehaviour
     {
         if(other.tag == "Player" && !isCheckpointUsed)
         {
+            Instantiate(activefx, new Vector3(transform.position.x, transform.position.y, 3.2f), activefx.transform.rotation);
             levelManager.lastCheckpointPosition = new Vector3 (respawnPosition.x, respawnPosition.y, levelManager.lastCheckpointPosition.z);
             GetComponent<Renderer>().material = activeMaterial;
             isCheckpointUsed = true;

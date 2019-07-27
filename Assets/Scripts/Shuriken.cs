@@ -28,7 +28,7 @@ public class Shuriken : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        if(other.tag == "Shield")
+        if(other.tag == "Shield" || other.tag == "Ground" || other.tag == "Wall")
         {
             GameObject temp = Instantiate(hitFX, transform.position, transform.rotation);
             temp.transform.SetParent(other.transform, true);

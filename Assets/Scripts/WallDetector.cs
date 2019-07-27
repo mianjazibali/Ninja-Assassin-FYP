@@ -7,7 +7,7 @@ public class WallDetector : MonoBehaviour
     public PlayerMovement playerMovement;
     private void OnTriggerStay(Collider other)
     {
-        if(other.transform.tag == "Wall" || other.transform.tag == "Destructible")
+        if(other.transform.tag == "Wall" || other.transform.tag == "Destructible" || other.transform.tag == "Ground")
         {
             //Debug.Log("Wall");
             playerMovement.SetCanMove(false);
@@ -16,7 +16,7 @@ public class WallDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Wall" || other.transform.tag == "Destructible")
+        if (other.transform.tag == "Wall" || other.transform.tag == "Destructible" || other.transform.tag == "Ground")
         {
             playerMovement.SetCanMove(true);
         }

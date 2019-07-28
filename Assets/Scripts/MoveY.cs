@@ -7,6 +7,8 @@ public class MoveY : MonoBehaviour
     public float positionY;
     public float animationTime;
     public float delayTime;
+    public iTween.LoopType loopType = iTween.LoopType.pingPong;
+    public iTween.EaseType easeType = iTween.EaseType.easeInOutSine;
 
     private readonly bool isLocal = true;
 
@@ -18,6 +20,6 @@ public class MoveY : MonoBehaviour
 
     void MoveTo()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("Y", positionY, "time", animationTime, "delay", delayTime, "looptype", iTween.LoopType.pingPong, "easetype", iTween.EaseType.easeInOutSine, "isLocal", isLocal));
+        iTween.MoveTo(gameObject, iTween.Hash("Y", positionY, "time", animationTime, "delay", delayTime, "looptype", loopType, "easetype", easeType, "isLocal", isLocal));
     }
 }

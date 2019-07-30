@@ -1955,6 +1955,8 @@ MonoBehaviour:
   positionY: -0.2
   animationTime: 1
   delayTime: 0
+  loopType: 2
+  easeType: 14
 --- !u!33 &247479062
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2860,6 +2862,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 935188099}
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 935188098}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4455,6 +4468,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 530916044}
         m_MethodName: toggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 935188098}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8855,6 +8879,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 935188098}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1337150349
@@ -8923,6 +8958,8 @@ MonoBehaviour:
   positionY: 0.2
   animationTime: 1
   delayTime: 0
+  loopType: 2
+  easeType: 14
 --- !u!1 &1340706794
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,6 +10464,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 935188098}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1559581901}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -10804,6 +10852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609892640}
   - component: {fileID: 1609892641}
+  - component: {fileID: 1609892642}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -10873,10 +10922,44 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1609892642}
+        m_MethodName: toggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 935188098}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &1609892642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609892639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2298a9b1f8c954d840b1e234229bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623128961
 GameObject:
   m_ObjectHideFlags: 0
@@ -27382,6 +27465,8 @@ MonoBehaviour:
   positionY: 0.2
   animationTime: 1
   delayTime: 0
+  loopType: 2
+  easeType: 14
 --- !u!65 &7579160268527426508
 BoxCollider:
   m_ObjectHideFlags: 0

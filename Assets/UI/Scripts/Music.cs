@@ -17,30 +17,32 @@ public class Music : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex > 100)
+        if (SceneManager.GetActiveScene().buildIndex > 6)
         {
-            _audioSource.Pause();
+            _audioSource.volume = volume / 2f;
         }
         else
         {
-            if (!_audioSource.isPlaying && isMusicOn == 0)
-            {
-                _audioSource.UnPause();
-                PlayerPrefs.SetInt("MusicTriggerValue", 0);
-                PlayerPrefs.Save();
-            }
-            else
-            if ( (!_audioSource.isPlaying && isMusicOn == 1) || (_audioSource.isPlaying && isMusicOn == 0) )
-            {
-                return;
-            }
-            else
-            if (_audioSource.isPlaying && isMusicOn == 1)
-            {
-                _audioSource.Pause();
-                PlayerPrefs.SetInt("MusicTriggerValue", 1);
-                PlayerPrefs.Save();
-            }
+            _audioSource.volume = volume;
+        }
+            
+        if (!_audioSource.isPlaying && isMusicOn == 0)
+        {
+            _audioSource.UnPause();
+            PlayerPrefs.SetInt("MusicTriggerValue", 0);
+            PlayerPrefs.Save();
+        }
+        else
+        if ( (!_audioSource.isPlaying && isMusicOn == 1) || (_audioSource.isPlaying && isMusicOn == 0) )
+        {
+            return;
+        }
+        else
+        if (_audioSource.isPlaying && isMusicOn == 1)
+        {
+            _audioSource.Pause();
+            PlayerPrefs.SetInt("MusicTriggerValue", 1);
+            PlayerPrefs.Save();
         }
     }
 }

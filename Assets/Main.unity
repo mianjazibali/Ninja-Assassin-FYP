@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03a61ef38b1faa49b4e633460c94909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.8
+  volume: 0.4
 --- !u!82 &1069387137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1213,6 +1213,24 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: e8526e75904b03e40a47e5c1cc3e90de, type: 3}
     name: Click
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b62d81e1c85216648b962f12cce7016a, type: 3}
+    name: Move
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 8b53d31a3ccfb284dae5a2558e4fc2c0, type: 3}
+    name: Death01
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f6df0db6f4067464dac53fe578af474b, type: 3}
+    name: HealthBell
     volume: 1
     pitch: 1
     loop: 0

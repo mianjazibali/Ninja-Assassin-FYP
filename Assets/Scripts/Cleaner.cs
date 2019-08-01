@@ -14,6 +14,7 @@ public class Cleaner : MonoBehaviour
         {
             GameObject player = other.transform.parent.gameObject;
             player.GetComponent<PlayerMovement>().SetGrounded(true);
+            FindObjectOfType<AudioManager>().Play("Death01");
             player.SetActive(false);
             StartCoroutine(Respawn(player));
         }

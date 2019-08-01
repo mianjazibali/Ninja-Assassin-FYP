@@ -21,6 +21,7 @@ public class Saw : MonoBehaviour
     {
         if (other.tag == "Player" && !playerHealth.isShieldActive)
         {
+            FindObjectOfType<AudioManager>().Play("Death01");
             player.SetActive(false);
             StartCoroutine(Respawn(player));
         }

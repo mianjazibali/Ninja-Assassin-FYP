@@ -60,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
             Reset();
             currentLives--;
             UpdateLivesText();
+            FindObjectOfType<AudioManager>().Play("HealthBell");
             if (playerMovement.GetPlayerFacing() == -1f)
             {
                 playerMovement.FlipPlayer();

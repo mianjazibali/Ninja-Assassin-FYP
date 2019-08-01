@@ -10,6 +10,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Death01");
             GameObject player = other.transform.parent.gameObject;
             if (!player.GetComponent<PlayerMovement>().isDashing())
             {

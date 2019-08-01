@@ -19,11 +19,7 @@ public class Music : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex > 6)
         {
-            _audioSource.volume = volume / 2f;
-        }
-        else
-        {
-            _audioSource.volume = volume;
+            _audioSource.Stop();
         }
             
         if (!_audioSource.isPlaying && isMusicOn == 0)

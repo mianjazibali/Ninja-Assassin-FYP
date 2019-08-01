@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform dustFXPos;
     public GameObject dustFX;
 
+    private AudioManager audioManager;
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         IsAttacking = false;
         Dash = false;
         Dashing = false;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void FixedUpdate()
@@ -141,9 +144,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        //float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float horizontalMovement = CrossPlatformInputManager.GetAxis("Horizontal");
+        //float horizontalMovement = Input.GetAxisRaw("Horizontal");
         myAnimator.SetFloat("moveSpeed", Mathf.Abs(horizontalMovement));
+        if(Mathf.Abs(horizontalMovement) > 0 && Grounded)
+        {
+            FindObjectOfType<AudioManager>().Play("Move");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("Move");
+        }
 
         if (horizontalMovement > 0 && !FacingRight)
         {
